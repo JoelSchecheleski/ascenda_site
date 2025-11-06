@@ -1,0 +1,38 @@
+/*********************************/
+/*             General            */
+/*===============================*/
+
+body {
+    @apply font-league text-base text-slate-900 dark:text-white !w-full;
+}
+
+.container {
+    @apply w-full !mx-auto px-3;
+}
+
+p {
+    @apply leading-relaxed;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    @apply font-league leading-normal;
+}
+
+::selection {
+    @apply bg-primary/90 text-white;
+}
+.ng-dropdown-panel {
+    @apply start-0;
+}
+
+.ng-dropdown-panel-items{
+    @apply bg-white dark:bg-slate-900 border-0 rounded-[5px] shadow-sm dark:shadow-gray-800 z-9999 mt-4;
+    div{
+        .ng-option{
+            @apply ps-4 py-2 cursor-pointer z-9999;
+            &:hover{
+                @apply bg-gray-50 dark:bg-slate-800;
+            }
+        }
+    }
+}

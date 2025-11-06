@@ -1,0 +1,65 @@
+[
+    {
+        "id":1,
+        "image":"/assets/images/property/1.jpg",
+        "title":"Skills That You Can Learn In The Real Estate Market",
+        "date":"13th Sep 2023",
+        "tag":"Residential"
+    },
+    {
+        "id":2,
+        "image":"/assets/images/property/2.jpg",
+        "title":"Learn The Truth About Real Estate Industry",
+        "date":"29th Nov 2023",
+        "tag":"Land"
+    },
+    {
+        "id":3,
+        "image":"/assets/images/property/3.jpg",
+        "title":"10 Quick Tips About Business Development",
+        "date":"29th Dec 2023",
+        "tag":"Commercial"
+    },
+    {
+        "id":4,
+        "image":"/assets/images/property/4.jpg",
+        "title":"14 Common Misconceptions About Business Development",
+        "date":"13th March 2023",
+        "tag":"Industrial"
+    },
+    {
+        "id":5,
+        "image":"/assets/images/property/5.jpg",
+        "title":"10 Things Your Competitors Can Teach You About Real Estate",
+        "date":"5th May 2023",
+        "tag":"Investment"
+    },
+    {
+        "id":6,
+        "image":"/assets/images/property/6.jpg",
+        "title":"Why We Love Real Estate",
+        "date":"19th June 2023",
+        "tag":"Residential"
+    },
+    {
+        "id":7,
+        "image":"/assets/images/property/7.jpg",
+        "title":"110 Quick Tips About Real Estate",
+        "date":"20th June 2023",
+        "tag":"Land"
+    },
+    {
+        "id":8,
+        "image":"/assets/images/property/8.jpg",
+        "title":"15 Best Blogs To Follow About Real Estate",
+        "date":"31st Aug 2023",
+        "tag":"Commercial"
+    },
+    {
+        "id":9,
+        "image":"/assets/images/property/9.jpg",
+        "title":"Using Banner Stands To Increase Trade Show Traffic",
+        "date":"1st Sep 2023",
+        "tag":"Industrial"
+    }
+]

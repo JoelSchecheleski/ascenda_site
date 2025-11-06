@@ -1,0 +1,157 @@
+<app-navbar [childMessage]="'true'" [navLight]="true"/>
+
+<section class="relative table w-full py-32 lg:py-36 bg-[url('/assets/images/bg/01.jpg')] bg-no-repeat bg-center bg-cover">
+    <div class="absolute inset-0 bg-slate-900/80"></div>
+    <div class="container relative">
+        <div class="grid grid-cols-1 text-center mt-10">
+            <h3 class="md:text-4xl text-3xl md:leading-normal leading-normal font-medium text-white">List View Layout</h3>
+        </div>
+    </div>
+</section>
+<div class="relative">
+    <div class="shape overflow-hidden z-1 text-white dark:text-slate-900">
+        <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+        </svg>
+    </div>
+</div>
+
+<div class="container relative -mt-16 z-1">
+    <div class="grid grid-cols-1">
+        <form class="p-6 bg-white dark:bg-slate-900 rounded-xl shadow-md shadow-gyay-200 dark:shadow-gray-700">
+            <div class="registration-form text-dark text-start">
+                <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 lg:gap-0 gap-6">
+                    <div>
+                        <label class="form-label font-medium text-slate-900 dark:text-white">Search : <span class="text-red-600">*</span></label>
+                        <div class="filter-search-form relative filter-border mt-2">
+                            <i class="uil uil-search icons"></i>
+                            <input name="name" type="text" id="job-keyword" class="form-input filter-input-box !bg-gray-50 dark:!bg-slate-800 border-0" placeholder="Search your keaywords">
+                        </div>
+                    </div>
+                    
+
+                    <div>
+                        <label for="buy-properties" class="form-label font-medium text-slate-900 dark:text-white">Select Categories:</label>
+                        <div class="filter-search-form relative filter-border mt-2">
+                            <i class="uil uil-estate icons"></i>
+                            <ng-select class="form-input w-full filter-input-box !bg-gray-50 h-[60px] dark:!bg-slate-800 border-0 focus:ring-0 ps-10" [items]="property" bindLabel="name" bindValue="id" placeholder="House">
+                            </ng-select>
+                        </div>
+                    </div>
+                
+                    <div>
+                        <label for="buy-min-price" class="form-label font-medium text-slate-900 dark:text-white">Min Price :</label>
+                        <div class="filter-search-form relative filter-border mt-2">
+                            <i class="uil uil-usd-circle icons"></i>
+                            <ng-select class="form-input w-full filter-input-box !bg-gray-50 h-[60px] dark:!bg-slate-800 border-0 focus:ring-0 ps-10" [items]="minPrice" bindLabel="name" bindValue="id" placeholder="500">
+                            </ng-select>
+                        </div>
+                    </div>
+                
+                    <div>
+                        <label for="buy-max-price" class="form-label font-medium text-slate-900 dark:text-white">Max Price :</label>
+                        <div class="filter-search-form relative mt-2">
+                            <i class="uil uil-usd-circle icons"></i>
+                            <ng-select class="form-input w-full filter-input-box !bg-gray-50 h-[60px] dark:!bg-slate-800 border-0 focus:ring-0 ps-10" [items]="maxPrice" bindLabel="name" bindValue="id" placeholder="6000">
+                            </ng-select>
+                        </div>
+                    </div>
+
+                    <div class="lg:mt-6">
+                        <input type="submit" id="search-buy" name="search" class="btn bg-primary hover:bg-primary-dark border-primary hover:border-primary-dark text-white searchbtn submit-btn w-full !h-12 rounded" value="Search">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<section class="relative lg:py-24 py-16">
+    <div class="container relative">
+        <div class="grid lg:grid-cols-2 grid-cols-1 gap-[30px]">
+            <div *ngFor="let item of propertylist" class="group rounded-xl bg-white dark:bg-slate-900 shadow-sm hover:shadow-xl dark:hover:shadow-xl shadow-gyay-200 dark:shadow-gray-700 dark:hover:shadow-gray-700 overflow-hidden ease-in-out duration-500 w-full mx-auto">
+                <div class="md:flex">
+                    <div class="relative md:shrink-0">
+                        <img class="h-full w-full object-cover md:w-48" [src]="item.image" alt="">
+                        <div class="absolute top-4 end-4">
+                            <a [routerLink]="[]" class="btn btn-icon bg-white dark:bg-slate-900 shadow-sm shadow-gyay-200 dark:shadow-gray-700 !rounded-full text-slate-100 dark:text-slate-700 focus:text-red-600 dark:focus:text-red-600 hover:text-red-600 dark:hover:text-red-600"><i class="mdi mdi-heart text-[20px]"></i></a>
+                        </div>
+                    </div>
+                    <div class="p-6 w-full">
+                        <div class="md:pb-4 pb-6">
+                            <a [routerLink]="'/property-detail'" class="text-lg hover:text-primary font-medium ease-in-out duration-500">{{item.name}}</a>
+                        </div>
+
+                        <ul class="md:py-4 py-6 border-y border-slate-100 dark:border-gray-800 flex items-center list-none">
+                            <li class="flex items-center me-4">
+                                <i class="uil uil-compress-arrows text-2xl me-2 text-primary"></i>
+                                <span>{{item.sqf}}</span>
+                            </li>
+
+                            <li class="flex items-center me-4">
+                                <i class="uil uil-bed-double text-2xl me-2 text-primary"></i>
+                                <span>{{item.beds}}</span>
+                            </li>
+
+                            <li class="flex items-center">
+                                <i class="uil uil-bath text-2xl me-2 text-primary"></i>
+                                <span>{{item.baths}}</span>
+                            </li>
+                        </ul>
+
+                        <ul class="md:pt-4 pt-6 flex justify-between items-center list-none">
+                            <li>
+                                <span class="text-slate-400">Price</span>
+                                <p class="text-lg font-medium">{{item.price}}</p>
+                            </li>
+
+                            <li>
+                                <span class="text-slate-400">Rating</span>
+                                <ul class="text-lg font-medium text-amber-400 list-none">
+                                    <li class="inline mx-0.5"><i class="mdi mdi-star"></i></li>
+                                    <li class="inline mx-0.5"><i class="mdi mdi-star"></i></li>
+                                    <li class="inline mx-0.5"><i class="mdi mdi-star"></i></li>
+                                    <li class="inline mx-0.5"><i class="mdi mdi-star"></i></li>
+                                    <li class="inline mx-0.5"><i class="mdi mdi-star"></i></li>
+                                    <li class="inline text-black dark:text-white">5.0(30)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-12 grid-cols-1 mt-8">
+            <div class="md:col-span-12 text-center">
+                <nav>
+                    <ul class="inline-flex items-center -space-x-px">
+                        <li>
+                            <a [routerLink]="[]" class="size-10 inline-flex justify-center items-center mx-1 !rounded-full text-slate-400 bg-white dark:bg-slate-900 hover:text-white shadow-xs shadow-gyay-200 dark:shadow-gray-700 hover:border-primary dark:hover:border-primary hover:bg-primary dark:hover:bg-primary">
+                                <i class="uil uil-angle-left text-[20px]"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink]="[]" class="size-10 inline-flex justify-center items-center mx-1 !rounded-full text-slate-400 hover:text-white bg-white dark:bg-slate-900 shadow-xs shadow-gyay-200 dark:shadow-gray-700 hover:border-primary dark:hover:border-primary hover:bg-primary dark:hover:bg-primary">1</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="[]" class="size-10 inline-flex justify-center items-center mx-1 !rounded-full text-slate-400 hover:text-white bg-white dark:bg-slate-900 shadow-xs shadow-gyay-200 dark:shadow-gray-700 hover:border-primary dark:hover:border-primary hover:bg-primary dark:hover:bg-primary">2</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="[]" aria-current="page" class="z-10 size-10 inline-flex justify-center items-center mx-1 !rounded-full text-white bg-primary shadow-xs shadow-gyay-200 dark:shadow-gray-700">3</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="[]" class="size-10 inline-flex justify-center items-center mx-1 !rounded-full text-slate-400 hover:text-white bg-white dark:bg-slate-900 shadow-xs shadow-gyay-200 dark:shadow-gray-700 hover:border-primary dark:hover:border-primary hover:bg-primary dark:hover:bg-primary">4</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="[]" class="size-10 inline-flex justify-center items-center mx-1 !rounded-full text-slate-400 bg-white dark:bg-slate-900 hover:text-white shadow-xs shadow-gyay-200 dark:shadow-gray-700 hover:border-primary dark:hover:border-primary hover:bg-primary dark:hover:bg-primary">
+                                <i class="uil uil-angle-right text-[20px]"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<app-footer/>

@@ -1,0 +1,9 @@
+<div class="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 mt-8 md:gap-[30px] gap-3">
+    <div *ngFor="let item of categoriesData" class="group rounded-xl bg-white dark:bg-slate-900 shadow-sm hover:shadow-xl dark:hover:shadow-xl shadow-gyay-200 dark:shadow-gray-700 dark:hover:shadow-gray-700 overflow-hidden ease-in-out duration-500">
+        <img [src]="item.image" alt="">
+        <div class="p-4">
+            <a [routerLink]="[]" class="text-xl font-medium hover:text-primary">{{item.name}}</a>
+            <p class="text-slate-400 text-sm mt-1">{{item.title}}</p>
+        </div>
+    </div>
+</div>

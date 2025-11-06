@@ -1,0 +1,244 @@
+<nav id="topnav" class="defaultscroll is-sticky !bg-white dark:!bg-slate-900" (window:scroll)="windowScroll()">
+    <div class="container-fluid md:px-8 px-3">
+        <a class="logo" routerLink="/">
+            <img [src]="'/assets/images/logo-dark.png'" class="inline-block dark:hidden" alt="">
+            <img [src]="'/assets/images/logo-light.png'" class="hidden dark:inline-block" alt="">
+        </a>
+        
+        <div class="menu-extras">
+            <div class="menu-item">
+                <a class="navbar-toggle" [routerLink]="[]" id="isToggle" (click)="toggleMenu()">
+                    <div class="lines">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <ul class="buy-button list-none mb-0">
+            <!-- Language Selector -->
+            <li class="inline mb-0 relative">
+                <button (click)="toggleLanguageMenu()" class="btn btn-icon bg-transparent hover:bg-gray-50 dark:hover:bg-slate-800 border-0 text-gray-700 dark:text-gray-300 !rounded-full">
+                    <img [src]="getCurrentLanguageFlag()" alt="Language" title="Select Language" class="w-6 h-6 object-cover rounded-sm">
+                </button>
+                @if (showLanguageMenu) {
+                    <div class="absolute right-0 mt-2 w-48 bg-white dark:bg-slate-900 rounded-lg shadow-lg border border-gray-100 dark:border-gray-700 py-2 z-50">
+                        @for (lang of languages; track lang.code) {
+                            <button 
+                                (click)="switchLanguage(lang.code)"
+                                [class.bg-primary]="currentLanguage === lang.code"
+                                [class.text-white]="currentLanguage === lang.code"
+                                class="w-full text-left px-4 py-2 hover:bg-gray-50 dark:hover:bg-slate-800 flex items-center gap-3 transition-colors">
+                                <img [src]="lang.flag" [alt]="lang.name" [title]="lang.name" class="w-6 h-4 object-cover rounded-sm">
+                                <span class="text-sm font-medium">{{lang.name}}</span>
+                            </button>
+                        }
+                    </div>
+                }
+            </li>
+            <li class="sm:inline ps-1 mb-0 hidden">
+                <a [routerLink]="'/auth-signup'" class="btn bg-primary hover:bg-primary-dark border-primary dark:border-primary text-white !rounded-full">{{'NAV.SIGNUP' | translate}}</a>
+            </li>
+        </ul>
+
+        <div id="navigation" [style]="status  ? 'display: block;' : 'display: none;'">
+            <ul class="navigation-menu justify-center">
+                <li class="has-submenu parent-menu-item">
+                    <a [routerLink]="[]" (click)="subManu('index-item')">{{'NAV.HOME' | translate}}</a><span class="menu-arrow"></span>
+                    <ul class="submenu megamenu" [ngClass]="['index-item','/index-two', '/index-three','/index-four','/index-five','/index-six','/index-seven','/index-eighr','/index-nine','/index-ten','/index-eleven','/index-twelve'].includes(manuOpen) ? 'open' : ''">
+                        <li>
+                            <ul>
+                                <li>
+                                    <a [routerLink]="'/'" class="sub-menu-item">
+                                        <div class="lg:text-center">
+                                            <span class="none lg:block"><img [src]="'/assets/images/demo/hero-one.png'" class="img-fluid rounded shadow-md" alt=""></span>
+                                            <span class="lg:mt-2 block">Hero One</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a [routerLink]="'/index-two'" class="sub-menu-item">
+                                        <div class="lg:text-center">
+                                            <span class="none lg:block"><img [src]="'assets/images/demo/hero-two.png'" class="img-fluid rounded shadow-md" alt=""></span>
+                                            <span class="lg:mt-2 block">Hero Two</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a [routerLink]="'/index-three'" class="sub-menu-item">
+                                        <div class="lg:text-center">
+                                            <span class="none lg:block"><img [src]="'assets/images/demo/hero-three.png'" class="img-fluid rounded shadow-md" alt=""></span>
+                                            <span class="lg:mt-2 block">Hero Three</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <ul>
+                                <li>
+                                    <a [routerLink]="'/index-four'" class="sub-menu-item">
+                                        <div class="lg:text-center">
+                                            <span class="none lg:block"><img [src]="'/assets/images/demo/hero-four.png'" class="img-fluid rounded shadow-md" alt=""></span>
+                                            <span class="lg:mt-2 block">Hero Four</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a [routerLink]="'/index-five'" class="sub-menu-item">
+                                        <div class="lg:text-center">
+                                            <span class="none lg:block"><img [src]="'/assets/images/demo/hero-five.png'" class="img-fluid rounded shadow-md" alt=""></span>
+                                            <span class="lg:mt-2 block">Hero Five</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a [routerLink]="'/index-six'" class="sub-menu-item">
+                                        <div class="lg:text-center">
+                                            <span class="none lg:block"><img [src]="'/assets/images/demo/hero-six.png'" class="img-fluid rounded shadow-md" alt=""></span>
+                                            <span class="lg:mt-2 block">Hero Six</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <ul>
+                                <li>
+                                    <a [routerLink]="'/index-seven'" class="sub-menu-item">
+                                        <div class="lg:text-center">
+                                            <span class="none lg:block"><img [src]="'/assets/images/demo/hero-seven.png'" class="img-fluid rounded shadow-md" alt=""></span>
+                                            <span class="lg:mt-2 block">Hero Seven</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a [routerLink]="'/index-eight'" class="sub-menu-item">
+                                        <div class="lg:text-center">
+                                            <span class="none lg:block"><img [src]="'/assets/images/demo/hero-eight.png'" class="img-fluid rounded shadow-md" alt=""></span>
+                                            <span class="lg:mt-2 block">Hero Eight</span>
+                                        </div>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <ul>
+                                <li>
+                                    <a [routerLink]="'/index-nine'" class="sub-menu-item">
+                                        <div class="lg:text-center">
+                                            <span class="none lg:block"><img [src]="'/assets/images/demo/hero-nine.png'" class="img-fluid rounded shadow-md" alt=""></span>
+                                            <span class="lg:mt-2 inline-block">Hero Nine</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a [routerLink]="'/index-ten'" class="sub-menu-item">
+                                        <div class="lg:text-center">
+                                            <span class="none lg:block"><img [src]="'/assets/images/demo/hero-ten.png'" class="img-fluid rounded shadow-md" alt=""></span>
+                                            <span class="lg:mt-2 inline-block">Hero Ten</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <ul>
+                                <li>
+                                    <a [routerLink]="'/index-eleven'" class="sub-menu-item">
+                                        <div class="lg:text-center">
+                                            <span class="none lg:block"><img [src]="'/assets/images/demo/hero-eleven.png'" class="img-fluid rounded shadow-md" alt=""></span>
+                                            <span class="lg:mt-2 block">Hero Eleven <span class="bg-red inline-block text-white text-[10px] font-bold px-2.5 py-0.5 rounded h-5 ms-1">New</span></span>
+                                        </div>
+                                    </a>
+                                </li>
+                        
+                                <li>
+                                    <a [routerLink]="'/index-twelve'" class="sub-menu-item">
+                                        <div class="lg:text-center">
+                                            <span class="none lg:block"><img [src]="'/assets/images/demo/hero-twelve.png'" class="img-fluid rounded shadow-md" alt=""></span>
+                                            <span class="lg:mt-2 block">Hero Twelve <span class="bg-red inline-block text-white text-[10px] font-bold px-2.5 py-0.5 rounded h-5 ms-1">New</span></span>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+        
+                <li><a [routerLink]="'/buy'" class="sub-menu-item">{{'NAV.BUY' | translate}}</a></li>
+        
+                <li><a [routerLink]="'/sell'" class="sub-menu-item">{{'NAV.SELL' | translate}}</a></li>
+
+                <li class="has-submenu parent-parent-menu-item">
+                    <a [routerLink]="[]" (click)="subManu('listing-item')">Listing</a><span class="menu-arrow"></span>
+                    <ul class="submenu" [ngClass]="['/grid','/grid-sidebar', '/grid-map','/list','/list-sidebar','/list-map','/property-detail','grid-item','list-item', 'property-item','listing-item'].includes(manuOpen) ? 'open' : ''">
+                        <li class="has-submenu parent-menu-item"><a [routerLink]="[]" (click)="subManu('grid-item')"> Grid View </a><span class="submenu-arrow"></span>
+                            <ul class="submenu" [ngClass]="['grid-item','/grid','/grid-sidebar','/grid-map'].includes(manuOpen) ? 'open' : ''">
+                                <li><a [routerLink]="'/grid'" class="sub-menu-item">Grid Listing</a></li>
+                                <li><a [routerLink]="'/grid-sidebar'" class="sub-menu-item">Grid Sidebar </a></li>
+                                <li><a [routerLink]="'/grid-map'" class="sub-menu-item">Grid With Map</a></li>
+                            </ul> 
+                        </li>
+                        <li class="has-submenu parent-menu-item"><a [routerLink]="[]" (click)="subManu('list-item')"> List View </a><span class="submenu-arrow"></span>
+                            <ul class="submenu" [ngClass]="['list-item','/list','/list-sidebar','/list-map'].includes(manuOpen) ? 'open' : ''">
+                                <li><a [routerLink]="'/list'" class="sub-menu-item">List Listing</a></li>
+                                <li><a [routerLink]="'/list-sidebar'" class="sub-menu-item">List Sidebar </a></li>
+                                <li><a [routerLink]="'/list-map'" class="sub-menu-item">List With Map</a></li>
+                            </ul>  
+                        </li>
+                        <li class="has-submenu parent-menu-item"><a [routerLink]="[]" (click)="subManu('property-item')"> Property Detail </a><span class="submenu-arrow"></span>
+                            <ul class="submenu" [ngClass]="['list-item','/property-detail','property-item'].includes(manuOpen) ? 'open' : ''">
+                                <li><a [routerLink]="'/property-detail'" class="sub-menu-item">Property Detail</a></li>
+                            </ul>  
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="has-submenu parent-parent-menu-item">
+                    <a [routerLink]="[]" (click)="subManu('property-item')">Pages</a><span class="menu-arrow"></span>
+                    <ul class="submenu" [ngClass]="['property-item','auth-item','utility-item','blog-item','special-item','/aboutus','/features','/pricing','/faqs','/auth-login','/auth-signup','/auth-re-password','/terms','/privacy','/blogs','/blog-sidebar','/blog-detail','/comingsoon','/maintenance','/404'].includes(manuOpen) ? 'open' : ''">
+                        <li><a [routerLink]="'/aboutus'" class="sub-menu-item">About Us</a></li>
+                        <li><a [routerLink]="'/features'" class="sub-menu-item">Features</a></li>
+                        <li><a [routerLink]="'/pricing'" class="sub-menu-item">Pricing</a></li>
+                        <li><a [routerLink]="'/faqs'" class="sub-menu-item">Faqs</a></li>
+                        <li class="has-submenu parent-menu-item"><a [routerLink]="[]" (click)="subManu('auth-item')"> Auth Pages </a><span class="submenu-arrow"></span>
+                            <ul class="submenu" [ngClass]="['auth-item','/auth-login','/auth-signup','/auth-re-password'].includes(manuOpen) ? 'open' : ''">
+                                <li><a [routerLink]="'/auth-login'" class="sub-menu-item">Login</a></li>
+                                <li><a [routerLink]="'/auth-signup'" class="sub-menu-item">Signup</a></li>
+                                <li><a [routerLink]="'/auth-re-password'" class="sub-menu-item">Reset Password</a></li>
+                            </ul>  
+                        </li>
+                        <li class="has-submenu parent-menu-item"><a [routerLink]="[]" (click)="subManu('utility-item')"> Utility </a><span class="submenu-arrow"></span>
+                            <ul class="submenu" [ngClass]="['utility-item','/terms','/privacy'].includes(manuOpen) ? 'open' : ''">
+                                <li><a [routerLink]="'/terms'" class="sub-menu-item">Terms of Services</a></li>
+                                <li><a [routerLink]="'/privacy'" class="sub-menu-item">Privacy Policy</a></li>
+                            </ul>  
+                        </li>
+                        <li class="has-submenu parent-menu-item"><a [routerLink]="[]" (click)="subManu('blog-item')"> Blog </a><span class="submenu-arrow"></span>
+                            <ul class="submenu" [ngClass]="['blog-item','/blogs','/blog-sidebar','/blog-detail'].includes(manuOpen) ? 'open' : ''">
+                                <li><a [routerLink]="'/blogs'" class="sub-menu-item"> Blogs</a></li>
+                                <li><a [routerLink]="'/blog-sidebar'" class="sub-menu-item"> Blog Sidebar</a></li>
+                                <li><a [routerLink]="'/blog-detail'" class="sub-menu-item"> Blog Detail</a></li>
+                            </ul> 
+                        </li>
+                        <li class="has-submenu parent-menu-item"><a [routerLink]="[]" (click)="subManu('special-item')"> Special </a><span class="submenu-arrow"></span>
+                            <ul class="submenu" [ngClass]="['special-item','/comingsoon','/maintenance','/404'].includes(manuOpen) ? 'open' : ''">
+                                <li><a [routerLink]="'/comingsoon'" class="sub-menu-item">Comingsoon</a></li>
+                                <li><a [routerLink]="'/maintenance'" class="sub-menu-item">Maintenance</a></li>
+                                <li><a [routerLink]="'/404'" class="sub-menu-item">404! Error</a></li>
+                            </ul>  
+                        </li>
+                    </ul>
+                </li>
+        
+                <li><a routerLink="/contact" class="sub-menu-item">{{'NAV.CONTACT' | translate}}</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+

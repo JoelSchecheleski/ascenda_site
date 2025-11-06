@@ -1,0 +1,110 @@
+[
+    {
+        "id":1,
+        "image":"assets/images/property/1.jpg",
+        "name":"10765 Hillshire Ave, Baton Rouge, LA 70810, USA",
+        "sqf":"8000sqf",
+        "beds":"4 Beds",
+        "baths":"4 Baths",
+        "price":"$5000"
+      },
+      {
+        "id":2,
+        "image":"assets/images/property/2.jpg",
+        "name":"59345 STONEWALL DR, Plaquemine, LA 70764, USA",
+        "sqf":"8000sqf",
+        "beds":"4 Beds",
+        "baths":"4 Baths",
+        "price":"$5000"
+      },
+      {
+        "id":3,
+        "image":"assets/images/property/3.jpg",
+        "name":"3723 SANDBAR DR, Addis, LA 70710, USA",
+        "sqf":"8000sqf",
+        "beds":"4 Beds",
+        "baths":"4 Baths",
+        "price":"$5000"
+      },
+      {
+        "id":4,
+        "image":"assets/images/property/4.jpg",
+        "name":"Lot 21 ROYAL OAK DR, Prairieville, LA 70769, USA",
+        "sqf":"8000sqf",
+        "beds":"4 Beds",
+        "baths":"4 Baths",
+        "price":"$5000"
+      },
+      {
+        "id":5,
+        "image":"assets/images/property/5.jpg",
+        "name":"710 BOYD DR, Unit #1102, Baton Rouge, LA 70808, USA",
+        "sqf":"8000sqf",
+        "beds":"4 Beds",
+        "baths":"4 Baths",
+        "price":"$5000"
+      },
+      {
+        "id":6,
+        "image":"assets/images/property/6.jpg",
+        "name":"5133 MCLAIN WAY, Baton Rouge, LA 70809, USA",
+        "sqf":"8000sqf",
+        "beds":"4 Beds",
+        "baths":"4 Baths",
+        "price":"$5000"
+      },
+      {
+        "id":7,
+        "image":"assets/images/property/7.jpg",
+        "name":"2141 Fiero Street, Baton Rouge, LA 70808",
+        "sqf":"8000sqf",
+        "beds":"4 Beds",
+        "baths":"4 Baths",
+        "price":"$5000"
+      },
+      {
+        "id":8,
+        "image":"assets/images/property/8.jpg",
+        "name":"9714 Inniswold Estates Ave, Baton Rouge, LA 70809",
+        "sqf":"8000sqf",
+        "beds":"4 Beds",
+        "baths":"4 Baths",
+        "price":"$5000"
+      },
+      {
+        "id":9,
+        "image":"assets/images/property/9.jpg",
+        "name":"1433 Beckenham Dr, Baton Rouge, LA 70808, USA",
+        "sqf":"8000sqf",
+        "beds":"4 Beds",
+        "baths":"4 Baths",
+        "price":"$5000"
+      },
+      {
+        "id":10,
+        "image":"assets/images/property/10.jpg",
+        "name":"1574 Sharlo Ave, Baton Rouge, LA 70820, USA",
+        "sqf":"8000sqf",
+        "beds":"4 Beds",
+        "baths":"4 Baths",
+        "price":"$5000"
+      },
+      {
+        "id":11,
+        "image":"assets/images/property/11.jpg",
+        "name":"2528 BOCAGE LAKE DR, Baton Rouge, LA 70809, USA",
+        "sqf":"8000sqf",
+        "beds":"4 Beds",
+        "baths":"4 Baths",
+        "price":"$5000"
+      },
+      {
+        "id":12,
+        "image":"assets/images/property/12.jpg",
+        "name":"1533 NICHOLSON DR, Baton Rouge, LA 70802, USA",
+        "sqf":"8000sqf",
+        "beds":"4 Beds",
+        "baths":"4 Baths",
+        "price":"$5000"
+      }
+]

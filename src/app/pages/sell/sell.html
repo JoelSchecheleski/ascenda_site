@@ -1,0 +1,86 @@
+<app-navbar [childMessage]="'true'" [navLight]="true"/>
+
+<section class="relative table w-full py-32 lg:py-36 bg-[url('/assets/images/bg/01.jpg')] bg-no-repeat bg-center bg-cover">
+    <div class="absolute inset-0 bg-slate-900/80"></div>
+    <div class="container relative">
+        <div class="grid grid-cols-1 text-center mt-10">
+            <h3 class="md:text-4xl text-3xl md:leading-normal leading-normal font-medium text-white">{{'SELL.TITLE' | translate}}</h3>
+        </div>
+    </div>
+</section>
+
+<div class="relative">
+    <div class="shape overflow-hidden z-1 text-white dark:text-slate-900">
+        <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+        </svg>
+    </div>
+</div>
+
+<section class="relative lg:py-24 py-16">
+    <div class="container relative">
+        <div class="grid grid-cols-1 pb-8 text-center">
+            <h3 class="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">{{'SELL.HOW_IT_WORKS' | translate}}</h3>
+
+            <p class="text-slate-400 max-w-xl mx-auto">{{'SELL.HOW_IT_WORKS_DESC' | translate}}</p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-8 gap-[30px]">
+            <div *ngFor="let item of aboutData" class="group relative lg:px-10 transition-all duration-500 ease-in-out rounded-xl bg-transparent overflow-hidden text-center">
+                <div class="relative overflow-hidden text-transparent -m-3">
+                    <i data-feather="hexagon" class="size-32 fill-primary/5 mx-auto"></i>
+                    <div class="absolute top-2/4 -translate-y-2/4 start-0 end-0 mx-auto text-primary rounded-xl transition-all duration-500 ease-in-out text-4xl flex align-middle justify-center items-center">
+                        <i class={{item.icon}}></i>
+                    </div>
+                </div>
+
+                <div class="mt-6">
+                    <h5 class="text-xl font-medium">{{item.title}}</h5>
+                    <p class="text-slate-400 mt-3">{{item.desc}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container relative lg:mt-24 mt-16">
+        <div class="grid grid-cols-1 pb-8 text-center">
+            <h3 class="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">{{'SELL.BROKERAGE_CALCULATOR' | translate}}</h3>
+
+            <p class="text-slate-400 max-w-xl mx-auto">{{'SELL.BROKERAGE_DESC' | translate}}</p>
+        </div>
+
+        <div class="md:flex justify-center mt-8">
+            <div class="lg:w-3/5 md:w-4/5">
+                <div class="p-6 shadow-sm shadow-gyay-200 dark:shadow-gray-700 rounded-md" role="form">
+                    <ul class="list-none flex justify-between">
+                        <li class="h6">{{'SELL.MIN' | translate}} $ 10000</li>
+                        <li class="h6">{{'SELL.MAX' | translate}} $ 200000</li>
+                    </ul>
+
+                    <div class="row">
+                        <div class="col-sm-12 mb-4">
+                            <label for="slider" class="form-label"></label>
+                            <input id="slider" type="range" value="10000" min="10000" max="200000" class="custom-range w-full h-2 bg-gray-100 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" (change)="saverange($event)">
+                        </div>
+                    </div>
+
+                    <ul class="list-none text-center md:flex justify-between">
+                        <li>
+                            <ul class="text-md-start brokerage-form list-none">
+                                <li class="font-medium"><label class="control-label">{{'SELL.TOTAL_VALUE' | translate}}</label></li>
+                                <li><input type="hidden" id="amount" class="form-control"><span class="text-primary">$</span> <p class="inline-block h5 text-primary" id="amount-label">{{changevalue}}</p></li>
+                            </ul>
+                        </li>
+
+                        <li class="mt-2 mt-sm-0">
+                            <ul class="text-md-end brokerage-form list-none">
+                                <li class="font-medium"><label class="control-label">{{'SELL.BROKERAGE_FEE' | translate}}</label></li>
+                                <li><input type="hidden" id="saving" class="form-control"><span class="text-primary">$</span> <p class="inline-block h5 text-primary" id="saving-label">{{brokerage}}</p></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<app-footer/>
