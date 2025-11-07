@@ -1,6 +1,6 @@
 <app-navbar/>
 
-<section class="relative h-screen pt-30 bg-[url('/assets/images/bg/02.jpg')] bg-no-repeat md:bg-top bg-cover">
+<section class="relative h-screen pt-30 bg-[url('/assets/images/bg/background.jpg')] bg-no-repeat md:bg-top bg-cover">
     <div class="container relative">
         <div class="grid grid-cols-1 items-center mt-10">
             <div class="text-center">
@@ -19,9 +19,16 @@
                 </div>
 
                 <div class="subcribe-form z-1 max-w-xl mx-auto mt-8">
-                    <form class="relative">
+                    <form class="relative" (submit)="onHeroSearch($event)">
                         <i data-feather="search" class="size-5 absolute top-3.5 start-4"></i>
-                        <input type="text" id="search_name" name="name" class="rounded-full bg-white dark:bg-slate-900 shadow-sm dark:shadow-gray-700 !ps-12" [placeholder]="'HOME.SEARCH_PLACEHOLDER' | translate" [attr.aria-label]="'HOME.SEARCH_PLACEHOLDER' | translate">
+                        <input
+                          type="text"
+                          id="search_name"
+                          name="name"
+                          [(ngModel)]="heroSearchQuery"
+                          class="rounded-full bg-white dark:bg-slate-900 shadow-sm dark:shadow-gray-700 !ps-12"
+                          [placeholder]="'HOME.SEARCH_PLACEHOLDER' | translate"
+                          [attr.aria-label]="'HOME.SEARCH_PLACEHOLDER' | translate">
                         <button type="submit" class="btn bg-primary hover:bg-primary-dark text-white !rounded-full">{{'HOME.SEARCH_BUTTON' | translate}}</button>
                     </form>
                 </div>
@@ -30,7 +37,7 @@
     </div>
 </section>
 
-<section class="relative md:py-24 py-16">
+<section class="relative md:py-24 py-16" #propertySection>
     <div class="container relative">
         <div class="grid grid-cols-1 pb-8">
             <h3 class="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">{{'HOME.FEATURED_PROPERTIES' | translate}}</h3>
@@ -49,9 +56,9 @@
 <!--        <app-about-three/>-->
 <!--    </div>-->
 
-    <div class="container relative mt-16">
+    <!-- <div class="container relative mt-16">
         <app-categories/>
-    </div>
+    </div> -->
     <!-- <app-about/> -->
     <app-team/>
 

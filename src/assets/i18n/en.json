@@ -28,7 +28,14 @@
     "HERO_SUBTITLE": "We have the best offers for you. Contact our team of experts",
     "SEARCH_PLACEHOLDER": "Search your future residence",
     "SEARCH_BUTTON": "Search",
-    "FEATURED_PROPERTIES": "Featured properties"
+    "FEATURED_PROPERTIES": "Featured properties",
+    "FILTER": {
+      "LOCATION": "Property Location",
+      "ALL_PURPOSES": "All Purposes",
+      "ALL_TYPES": "All Types",
+      "MIN_AREA": "Min Area (m²)",
+      "CLEAR": "Clear"
+    }
   },
   "BUY": {
     "TITLE": "Find Your Dream Home",
@@ -138,5 +145,57 @@
     "NO_RESULTS": "No results found",
     "ERROR": "Error",
     "SUCCESS": "Success"
+  },
+  "FILTER": {
+    "LOCATION": "Location",
+    "LOCATION_PLACEHOLDER": "City, Neighborhood or Address",
+    "PURPOSE_LABEL": "Purpose",
+    "ALL_PURPOSES": "All Purposes",
+    "PROPERTY_TYPE_LABEL": "Property Type",
+    "ALL_TYPES": "All Types",
+    "SHOW_ADVANCED": "Filters",
+    "HIDE_ADVANCED": "Hide Filters",
+    "PRICE_RANGE": "Price Range",
+    "MIN_PRICE": "Min Price",
+    "MAX_PRICE": "Max Price",
+    "AREA_RANGE": "Area Range",
+    "MIN_AREA": "Min Area",
+    "MAX_AREA": "Max Area",
+    "ADVANCED_FILTERS": "Filters",
+    "BEDROOMS": "Bedrooms",
+    "BATHROOMS": "Bathrooms",
+    "PARKING": "Parking Spaces",
+    "ANY": "Any",
+    "SEARCH": "Search",
+    "CLEAR": "Clear Filters",
+    "PURPOSE": {
+      "SALE": "Buy",
+      "RENT": "Rent",
+      "EXCHANGE": "Exchange"
+    },
+    "PROPERTY_TYPE": {
+      "HOUSE": "House",
+      "APARTMENT": "Apartment",
+      "TWOSTORYHOUSE": "Two Story House",
+      "CHALET": "Chalet",
+      "SEMIDETACHEDHOUSE": "Semi-detached House",
+      "BUNGALOW": "Bungalow",
+      "STUDIOAPARTMENT": "Studio Apartment",
+      "FLAT": "Flat",
+      "LOFT": "Loft",
+      "STUDIO": "Studio",
+      "PENTHOUSE": "Penthouse",
+      "DUPLEX": "Duplex",
+      "TRIPLEX": "Triplex",
+      "LUXURYPENTHOUSE": "Luxury Penthouse",
+      "TOWNHOUSE": "Townhouse",
+      "MANSION": "Mansion",
+      "STORE": "Store",
+      "OFFICE": "Office",
+      "WAREHOUSE": "Warehouse",
+      "LAND": "Land",
+      "FARM": "Farm",
+      "LOT": "Lot"
+    }
   }
 }
