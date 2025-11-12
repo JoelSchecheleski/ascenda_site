@@ -28,7 +28,14 @@
     "HERO_SUBTITLE": "Nós temos as melhores ofertas para você. Contate nosso time de especialistas",
     "SEARCH_PLACEHOLDER": "Pesquise sua futura residência",
     "SEARCH_BUTTON": "Pesquisar",
-    "FEATURED_PROPERTIES": "Propriedades em destaque"
+    "FEATURED_PROPERTIES": "Propriedades em destaque",
+    "FILTER": {
+      "LOCATION": "Localização da Propriedade",
+      "ALL_PURPOSES": "Todas as Finalidades",
+      "ALL_TYPES": "Todos os Tipos",
+      "MIN_AREA": "Área Mín (m²)",
+      "CLEAR": "Limpar"
+    }
   },
   "BUY": {
     "TITLE": "Encontre a Casa dos seus Sonhos",
@@ -41,7 +48,33 @@
     "SUBMIT_OFFER": "Enviar uma Oferta",
     "PROPERTY_INSPECTION": "Inspeção da Propriedade",
     "APPRAISAL": "Avaliação",
-    "CLOSING_DEAL": "Fechamento do Negócio"
+    "CLOSING_DEAL": "Fechamento do Negócio",
+    "STEPS": {
+      "PRE_APPROVAL": {
+        "TITLE": "Carta de Pré-Aprovação",
+        "DESC": "A maioria dos compradores pensa que o primeiro passo é encontrar a casa dos sonhos, mas a verdade é que conseguir o financiamento é o primeiro passo. A Ascenda agiliza o processo de Pré-Aprovação de Empréstimo com nosso ecossistema de Parceiros Premium ou simplesmente carregue sua própria carta de Pré-Aprovação."
+      },
+      "SCHEDULE_SHOWING": {
+        "TITLE": "Agendar uma Visita",
+        "DESC": "A Ascenda permite que o comprador agende uma visita instantânea e tenha uma visualização privada sem a necessidade de múltiplas partes envolvidas. Você escolhe o horário que funciona para você!"
+      },
+      "SUBMIT_OFFER": {
+        "TITLE": "Enviar uma Oferta",
+        "DESC": "A Ascenda orienta o comprador através do processo de acordo de compra tornando a papelada aparentemente sem esforço. Com nossos fluxos de trabalho personalizados e análise de progresso, você sempre saberá onde está sua compra. Chega de telefone sem resposta e e-mails não retornados!"
+      },
+      "PROPERTY_INSPECTION": {
+        "TITLE": "Inspeção da Propriedade",
+        "DESC": "Ninguém quer comprar gato por lebre. Agende uma inspeção com um inspetor licenciado e envie as solicitações de reparo através da plataforma Ascenda."
+      },
+      "APPRAISAL": {
+        "TITLE": "Avaliação",
+        "DESC": "A Ascenda monitora o processo de avaliação garantindo que a casa que você está comprando atende ou excede o preço que você está pagando."
+      },
+      "CLOSING_DEAL": {
+        "TITLE": "Fechamento do Negócio",
+        "DESC": "Finalmente o pacote de fechamento é enviado ao escritório de Títulos, e o dia chegou... Você conquistou a casa dos seus sonhos!"
+      }
+    }
   },
   "SELL": {
     "TITLE": "Venda Mais Rápido. Economize Milhares.",
@@ -111,8 +144,8 @@
     "PRICE_PER_SQFT": "Preço por m²",
     "MONTHLY_PAYMENT": "Pagamento Mensal (estimado)",
     "MONTHLY": "Mensal",
-    "BOOK_NOW": "Reservar Agora",
-    "OFFER_NOW": "Fazer Oferta Agora",
+    "BOOK_NOW": "Reservar",
+    "OFFER_NOW": "Fazer Oferta",
     "HAVE_QUESTION": "Tem Dúvidas? Entre em contato!"
   },
   "LISTING": {
@@ -138,5 +171,57 @@
     "NO_RESULTS": "Nenhum resultado encontrado",
     "ERROR": "Erro",
     "SUCCESS": "Sucesso"
+  },
+  "FILTER": {
+    "LOCATION": "Localização",
+    "LOCATION_PLACEHOLDER": "Cidade, Bairro ou Endereço",
+    "PURPOSE_LABEL": "Finalidade",
+    "ALL_PURPOSES": "Todas as Finalidades",
+    "PROPERTY_TYPE_LABEL": "Tipo de Imóvel",
+    "ALL_TYPES": "Todos os Tipos",
+    "SHOW_ADVANCED": "Filtros",
+    "HIDE_ADVANCED": "Ocultar Filtros",
+    "PRICE_RANGE": "Faixa de Preço",
+    "MIN_PRICE": "Preço Mínimo",
+    "MAX_PRICE": "Preço Máximo",
+    "AREA_RANGE": "Faixa de Área",
+    "MIN_AREA": "Área Mínima",
+    "MAX_AREA": "Área Máxima",
+    "ADVANCED_FILTERS": "Filtros",
+    "BEDROOMS": "Quartos",
+    "BATHROOMS": "Banheiros",
+    "PARKING": "Vagas de Garagem",
+    "ANY": "Qualquer",
+    "SEARCH": "Buscar",
+    "CLEAR": "Limpar Filtros",
+    "PURPOSE": {
+      "SALE": "Comprar",
+      "RENT": "Alugar",
+      "EXCHANGE": "Permutar"
+    },
+    "PROPERTY_TYPE": {
+      "HOUSE": "Casa",
+      "APARTMENT": "Apartamento",
+      "TWOSTORYHOUSE": "Sobrado",
+      "CHALET": "Chalé",
+      "SEMIDETACHEDHOUSE": "Casa Geminada",
+      "BUNGALOW": "Bangalô",
+      "STUDIOAPARTMENT": "Kitnet",
+      "FLAT": "Flat",
+      "LOFT": "Loft",
+      "STUDIO": "Estúdio",
+      "PENTHOUSE": "Cobertura",
+      "DUPLEX": "Duplex",
+      "TRIPLEX": "Triplex",
+      "LUXURYPENTHOUSE": "Cobertura de Luxo",
+      "TOWNHOUSE": "Casa de Vila",
+      "MANSION": "Mansão",
+      "STORE": "Loja",
+      "OFFICE": "Escritório",
+      "WAREHOUSE": "Galpão",
+      "LAND": "Terreno",
+      "FARM": "Fazenda",
+      "LOT": "Lote"
+    }
   }
 }

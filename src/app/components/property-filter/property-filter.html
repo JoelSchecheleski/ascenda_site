@@ -1,0 +1,208 @@
+<div class="property-filter bg-white dark:bg-slate-900 rounded-xl shadow-md p-6">
+  <!-- Filtros Básicos -->
+  <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4">
+    
+    <!-- Localização -->
+    <div>
+      <label class="form-label font-medium text-slate-900 dark:text-white">
+        {{'FILTER.LOCATION' | translate}}
+      </label>
+      <input
+        type="text"
+        [(ngModel)]="location"
+        (ngModelChange)="onFilterChange()"
+        [placeholder]="'FILTER.LOCATION_PLACEHOLDER' | translate"
+        [attr.aria-label]="'FILTER.LOCATION' | translate"
+        class="form-input w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-3 py-2"
+      />
+    </div>
+
+    <!-- Finalidade -->
+    <div>
+      <label for="purpose-select" class="form-label font-medium text-slate-900 dark:text-white">
+        {{'FILTER.PURPOSE_LABEL' | translate}}
+      </label>
+      <select
+        id="purpose-select"
+        [(ngModel)]="selectedPurpose"
+        (ngModelChange)="onFilterChange()"
+        class="form-select w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-3 py-2"
+      >
+        <option value="">{{'FILTER.ALL_PURPOSES' | translate}}</option>
+        @for (purpose of purposes; track purpose) {
+          <option [value]="purpose">{{ getPurposeLabel(purpose) | translate }}</option>
+        }
+      </select>
+    </div>
+
+    <!-- Tipo de Imóvel -->
+    <div>
+      <label for="property-type-select" class="form-label font-medium text-slate-900 dark:text-white">
+        {{'FILTER.PROPERTY_TYPE_LABEL' | translate}}
+      </label>
+      <select
+        id="property-type-select"
+        [(ngModel)]="selectedPropertyType"
+        (ngModelChange)="onFilterChange()"
+        class="form-select w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-3 py-2"
+      >
+        <option value="">{{'FILTER.ALL_TYPES' | translate}}</option>
+        @for (type of propertyTypes; track type) {
+          <option [value]="type">{{ getPropertyTypeLabel(type) | translate }}</option>
+        }
+      </select>
+    </div>
+
+    <!-- Botão Filtros Avançados -->
+    <div class="flex items-end">
+      <button
+        (click)="toggleAdvanced()"
+        class="btn w-full bg-primary hover:bg-primary-dark text-white rounded-md px-4 py-2 flex items-center justify-center gap-2"
+      >
+        <i class="uil uil-filter"></i>
+        <span>{{ (showAdvanced ? 'FILTER.HIDE_ADVANCED' : 'FILTER.SHOW_ADVANCED') | translate }}</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Filtros de Faixa de Preço e Área -->
+  <div class="grid lg:grid-cols-2 md:grid-cols-1 grid-cols-1 gap-4 mt-4">
+    
+    <!-- Faixa de Preço -->
+    @if (selectedPurpose) {
+      <div>
+        <label class="form-label font-medium text-slate-900 dark:text-white mb-2 block">
+          {{'FILTER.PRICE_RANGE' | translate}}
+        </label>
+        <div class="grid grid-cols-2 gap-2">
+          <input
+            type="number"
+            [(ngModel)]="minPrice"
+            (ngModelChange)="onFilterChange()"
+            [placeholder]="'FILTER.MIN_PRICE' | translate"
+            [attr.aria-label]="'FILTER.MIN_PRICE' | translate"
+            class="form-input rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-3 py-2"
+          />
+          <input
+            type="number"
+            [(ngModel)]="maxPrice"
+            (ngModelChange)="onFilterChange()"
+            [placeholder]="'FILTER.MAX_PRICE' | translate"
+            [attr.aria-label]="'FILTER.MAX_PRICE' | translate"
+            class="form-input rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-3 py-2"
+          />
+        </div>
+      </div>
+    }
+
+    <!-- Faixa de Área -->
+    <div>
+      <label class="form-label font-medium text-slate-900 dark:text-white mb-2 block">
+        {{'FILTER.AREA_RANGE' | translate}} (m²)
+      </label>
+      <div class="grid grid-cols-2 gap-2">
+        <input
+          type="number"
+          [(ngModel)]="minArea"
+          (ngModelChange)="onFilterChange()"
+          [placeholder]="'FILTER.MIN_AREA' | translate"
+          [attr.aria-label]="'FILTER.MIN_AREA' | translate"
+          class="form-input rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-3 py-2"
+        />
+        <input
+          type="number"
+          [(ngModel)]="maxArea"
+          (ngModelChange)="onFilterChange()"
+          [placeholder]="'FILTER.MAX_AREA' | translate"
+          [attr.aria-label]="'FILTER.MAX_AREA' | translate"
+          class="form-input rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-3 py-2"
+        />
+      </div>
+    </div>
+  </div>
+
+  <!-- Filtros Avançados (expansível) -->
+  @if (showAdvanced) {
+    <div class="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+      <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-4">
+        {{'FILTER.ADVANCED_FILTERS' | translate}}
+      </h3>
+
+      <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
+        
+        <!-- Quartos -->
+        <div>
+          <label for="bedrooms-select" class="form-label font-medium text-slate-900 dark:text-white">
+            {{'FILTER.BEDROOMS' | translate}}
+          </label>
+          <select
+            id="bedrooms-select"
+            [(ngModel)]="qttBedrooms"
+            (ngModelChange)="onFilterChange()"
+            class="form-select w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-3 py-2"
+          >
+            <option [value]="undefined">{{'FILTER.ANY' | translate}}</option>
+            @for (option of bedroomOptions; track option) {
+              <option [value]="option">{{option}}+</option>
+            }
+          </select>
+        </div>
+
+        <!-- Banheiros -->
+        <div>
+          <label for="bathrooms-select" class="form-label font-medium text-slate-900 dark:text-white">
+            {{'FILTER.BATHROOMS' | translate}}
+          </label>
+          <select
+            id="bathrooms-select"
+            [(ngModel)]="qttBathrooms"
+            (ngModelChange)="onFilterChange()"
+            class="form-select w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-3 py-2"
+          >
+            <option [value]="undefined">{{'FILTER.ANY' | translate}}</option>
+            @for (option of bathroomOptions; track option) {
+              <option [value]="option">{{option}}+</option>
+            }
+          </select>
+        </div>
+
+        <!-- Vagas de Garagem -->
+        <div>
+          <label for="parking-select" class="form-label font-medium text-slate-900 dark:text-white">
+            {{'FILTER.PARKING' | translate}}
+          </label>
+          <select
+            id="parking-select"
+            [(ngModel)]="qttParkingSpaces"
+            (ngModelChange)="onFilterChange()"
+            class="form-select w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-3 py-2"
+          >
+            <option [value]="undefined">{{'FILTER.ANY' | translate}}</option>
+            @for (option of parkingOptions; track option) {
+              <option [value]="option">{{option}}+</option>
+            }
+          </select>
+        </div>
+      </div>
+    </div>
+  }
+
+  <!-- Botões de Ação -->
+  <div class="flex gap-3 mt-6">
+    <button
+      (click)="onSearch()"
+      class="btn flex-1 bg-primary hover:bg-primary-dark text-white rounded-md px-6 py-2.5 flex items-center justify-center gap-2"
+    >
+      <i class="uil uil-search"></i>
+      <span>{{'FILTER.SEARCH' | translate}}</span>
+    </button>
+    
+    <button
+      (click)="clearFilters()"
+      class="btn bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white rounded-md px-6 py-2.5 flex items-center justify-center gap-2"
+    >
+      <i class="uil uil-times-circle"></i>
+      <span>{{'FILTER.CLEAR' | translate}}</span>
+    </button>
+  </div>
+</div>

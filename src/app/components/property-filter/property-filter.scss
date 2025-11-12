@@ -1,0 +1,28 @@
+.property-filter {
+  transition: all 0.3s ease;
+
+  .form-input,
+  .form-select {
+    transition: border-color 0.2s ease;
+
+    &:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    }
+  }
+
+  .btn {
+    transition: all 0.2s ease;
+    font-weight: 500;
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}

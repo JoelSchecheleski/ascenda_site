@@ -5,167 +5,117 @@
         <div class="grid lg:grid-cols-2 md:grid-cols-2">
             <div>
                 <div class="relative mt-12 md:p-8 py-8 px-3">
-                    <div class="grid grid-cols-1">
-                        <form class="p-6 bg-white dark:bg-slate-900 rounded-xl shadow-md shadow-gyay-200 dark:shadow-gray-700">
-                            <div class="registration-form text-dark text-start">
-                                <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 lg:gap-0 gap-6">
-                                    <div>
-                                        <label class="form-label font-medium text-slate-900 dark:text-white">{{'LISTING.SEARCH' | translate}} <span class="text-red-600">*</span></label>
-                                        <div class="filter-search-form relative filter-border mt-2">
-                                            <i class="uil uil-search icons"></i>
-                                            <input name="name" type="text" id="job-keyword" class="form-input filter-input-box !bg-gray-50 dark:!bg-slate-800 border-0" [placeholder]="'LISTING.SEARCH_PLACEHOLDER' | translate">
-                                        </div>
-                                    </div>
+                    <!-- Novo Componente de Filtro -->
+                    <app-property-filter
+                        (filterChange)="onFilterChange($event)"
+                        (search)="onSearch()"
+                    ></app-property-filter>
 
-                                    <div>
-                                        <label for="buy-properties" class="form-label font-medium text-slate-900 dark:text-white">{{'LISTING.SELECT_CATEGORIES' | translate}}</label>
-                                        <div class="filter-search-form relative filter-border mt-2">
-                                            <i class="uil uil-estate icons"></i>
-                                            <ng-select class="form-input w-full filter-input-box !bg-gray-50 h-[60px] dark:!bg-slate-800 border-0 focus:ring-0 ps-10" [items]="property" bindLabel="name" bindValue="id" placeholder="House">
-                                            </ng-select>
-                                        </div>
-                                    </div>
-                                
-                                    <div>
-                                        <label for="buy-min-price" class="form-label font-medium text-slate-900 dark:text-white">{{'LISTING.MIN_PRICE' | translate}}</label>
-                                        <div class="filter-search-form relative filter-border mt-2">
-                                            <i class="uil uil-usd-circle icons"></i>
-                                            <ng-select class="form-input w-full filter-input-box !bg-gray-50 h-[60px] dark:!bg-slate-800 border-0 focus:ring-0 ps-10" [items]="minPrice" bindLabel="name" bindValue="id" placeholder="500">
-                                            </ng-select>
-                                        </div>
-                                    </div>
-                                
-                                    <div>
-                                        <label for="buy-max-price" class="form-label font-medium text-slate-900 dark:text-white">{{'LISTING.MAX_PRICE' | translate}}</label>
-                                        <div class="filter-search-form relative mt-2">
-                                            <i class="uil uil-usd-circle icons"></i>
-                                            <ng-select class="form-input w-full filter-input-box !bg-gray-50 h-[60px] dark:!bg-slate-800 border-0 focus:ring-0 ps-10" [items]="maxPrice" bindLabel="name" bindValue="id" placeholder="6000">
-                                            </ng-select>
-                                        </div>
-                                    </div>
-
-                                    <div class="lg:mt-6">
-                                        <input type="submit" id="search-buy" name="search" class="btn bg-primary hover:bg-primary-dark border-primary hover:border-primary-dark text-white searchbtn submit-btn w-full !h-12 rounded" [value]="'LISTING.SEARCH_BUTTON' | translate">
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="grid lg:grid-cols-2 grid-cols-1 mt-8 gap-[30px]">
-                        <div *ngFor="let item of propertylist" class="group rounded-xl bg-white dark:bg-slate-900 shadow-sm hover:shadow-xl dark:hover:shadow-xl shadow-gyay-200 dark:shadow-gray-700 dark:hover:shadow-gray-700 overflow-hidden ease-in-out duration-500">
-                            <div class="relative">
-                                <img [src]="item.image" alt="">
-    
-                                <div class="absolute top-4 end-4">
-                                    <a [routerLink]="[]" class="btn btn-icon bg-white dark:bg-slate-900 shadow-sm shadow-gyay-200 dark:shadow-gray-700 !rounded-full text-slate-100 dark:text-slate-700 focus:text-red-600 dark:focus:text-red-600 hover:text-red-600 dark:hover:text-red-600"><i class="mdi mdi-heart text-[20px]"></i></a>
-                                </div>
-                            </div>
-    
-                            <div class="p-6">
-                                <div class="pb-6">
-                                    <a [routerLink]="'/property-detail'" class="text-lg hover:text-primary font-medium ease-in-out duration-500">{{item.name}}</a>
-                                </div>
-    
-                                <ul class="py-6 border-y border-slate-100 dark:border-gray-800 flex items-center list-none">
-                                    <li class="flex items-center me-4">
-                                        <i class="uil uil-compress-arrows text-2xl me-2 text-primary"></i>
-                                        <span>{{item.sqf}}</span>
-                                    </li>
-    
-                                    <li class="flex items-center me-4">
-                                        <i class="uil uil-bed-double text-2xl me-2 text-primary"></i>
-                                        <span>{{item.beds}}</span>
-                                    </li>
-    
-                                    <li class="flex items-center">
-                                        <i class="uil uil-bath text-2xl me-2 text-primary"></i>
-                                        <span>{{item.baths}}</span>
-                                    </li>
-                                </ul>
-    
-                                <ul class="pt-6 flex justify-between items-center list-none">
-                                    <li>
-                                        <span class="text-slate-400">{{'LISTING.PRICE' | translate}}</span>
-                                        <p class="text-lg font-medium">{{item.price}}</p>
-                                    </li>
-    
-                                    <li>
-                                        <span class="text-slate-400">{{'LISTING.RATING' | translate}}</span>
-                                        <ul class="text-lg font-medium text-amber-400 list-none">
-                                            <li class="inline mx-0.5"><i class="mdi mdi-star"></i></li>
-                                            <li class="inline mx-0.5"><i class="mdi mdi-star"></i></li>
-                                            <li class="inline mx-0.5"><i class="mdi mdi-star"></i></li>
-                                            <li class="inline mx-0.5"><i class="mdi mdi-star"></i></li>
-                                            <li class="inline mx-0.5"><i class="mdi mdi-star"></i></li>
-                                            <li class="inline text-black dark:text-white">5.0(30)</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
+                    <!-- Loading State -->
+                    @if (isLoading) {
+                        <div class="flex justify-center items-center py-20">
+                            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
                         </div>
-                    </div>
+                    }
 
-                    <div class="grid md:grid-cols-12 grid-cols-1 mt-8">
+                    <!-- Error State -->
+                    @if (errorMessage && !isLoading) {
+                        <div class="bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 p-4 rounded-lg mt-8">
+                            <p>{{ errorMessage }}</p>
+                        </div>
+                    }
+
+                    <!-- Properties Grid -->
+                    @if (!isLoading && !errorMessage) {
+                        <div class="grid lg:grid-cols-2 grid-cols-1 mt-8 gap-[30px]">
+                            @for (item of properties; track item.id) {
+                                <app-property-card [property]="item"></app-property-card>
+                            }
+                        </div>
+
+                        <!-- Paginação -->
+                        @if (properties.length > 0) {
+                            <div class="grid md:grid-cols-12 grid-cols-1 mt-8">
                         <div class="md:col-span-12 text-center">
                             <nav>
                                 <ul class="inline-flex items-center -space-x-px">
+                                    <!-- Botão Anterior -->
                                     <li>
-                                        <a [routerLink]="[]" class="size-10 inline-flex justify-center items-center mx-1 !rounded-full text-slate-400 bg-white dark:bg-slate-900 hover:text-white shadow-xs shadow-gyay-200 dark:shadow-gray-700 hover:border-primary dark:hover:border-primary hover:bg-primary dark:hover:bg-primary">
+                                        <button
+                                            (click)="previousPage()"
+                                            [disabled]="!hasPreviousPage()"
+                                            [class.opacity-50]="!hasPreviousPage()"
+                                            [class.cursor-not-allowed]="!hasPreviousPage()"
+                                            class="size-10 inline-flex justify-center items-center mx-1 !rounded-full text-slate-400 bg-white dark:bg-slate-900 hover:text-white shadow-xs shadow-gyay-200 dark:shadow-gray-700 hover:border-primary dark:hover:border-primary hover:bg-primary dark:hover:bg-primary"
+                                        >
                                             <i class="uil uil-angle-left text-[20px]"></i>
-                                        </a>
+                                        </button>
                                     </li>
+
+                                    <!-- Indicador de Página -->
                                     <li>
-                                        <a [routerLink]="[]" class="size-10 inline-flex justify-center items-center mx-1 !rounded-full text-slate-400 hover:text-white bg-white dark:bg-slate-900 shadow-xs shadow-gyay-200 dark:shadow-gray-700 hover:border-primary dark:hover:border-primary hover:bg-primary dark:hover:bg-primary">1</a>
+                                        <span class="size-10 inline-flex justify-center items-center mx-1 !rounded-full text-white bg-primary shadow-xs shadow-gyay-200 dark:shadow-gray-700">
+                                            {{currentPage}}
+                                        </span>
                                     </li>
-                                    <li>
-                                        <a [routerLink]="[]" class="size-10 inline-flex justify-center items-center mx-1 !rounded-full text-slate-400 hover:text-white bg-white dark:bg-slate-900 shadow-xs shadow-gyay-200 dark:shadow-gray-700 hover:border-primary dark:hover:border-primary hover:bg-primary dark:hover:bg-primary">2</a>
+
+                                    <li class="px-2 text-slate-400">
+                                        de {{getTotalPages()}}
                                     </li>
+
+                                    <!-- Botão Próximo -->
                                     <li>
-                                        <a [routerLink]="[]" aria-current="page" class="z-10 size-10 inline-flex justify-center items-center mx-1 !rounded-full text-white bg-primary shadow-xs shadow-gyay-200 dark:shadow-gray-700">3</a>
-                                    </li>
-                                    <li>
-                                        <a [routerLink]="[]" class="size-10 inline-flex justify-center items-center mx-1 !rounded-full text-slate-400 hover:text-white bg-white dark:bg-slate-900 shadow-xs shadow-gyay-200 dark:shadow-gray-700 hover:border-primary dark:hover:border-primary hover:bg-primary dark:hover:bg-primary">4</a>
-                                    </li>
-                                    <li>
-                                        <a [routerLink]="[]" class="size-10 inline-flex justify-center items-center mx-1 !rounded-full text-slate-400 bg-white dark:bg-slate-900 hover:text-white shadow-xs shadow-gyay-200 dark:shadow-gray-700 hover:border-primary dark:hover:border-primary hover:bg-primary dark:hover:bg-primary">
+                                        <button
+                                            (click)="nextPage()"
+                                            [disabled]="!hasNextPage()"
+                                            [class.opacity-50]="!hasNextPage()"
+                                            [class.cursor-not-allowed]="!hasNextPage()"
+                                            class="size-10 inline-flex justify-center items-center mx-1 !rounded-full text-slate-400 bg-white dark:bg-slate-900 hover:text-white shadow-xs shadow-gyay-200 dark:shadow-gray-700 hover:border-primary dark:hover:border-primary hover:bg-primary dark:hover:bg-primary"
+                                        >
                                             <i class="uil uil-angle-right text-[20px]"></i>
-                                        </a>
+                                        </button>
                                     </li>
                                 </ul>
                             </nav>
                         </div>
-                    </div>
-                </div>
-
-                <footer class="relative bg-neutral-900">                        
-                    <div class="py-[30px] px-0">
-                        <div class="container relative text-center px-6">
-                            <div class="grid md:grid-cols-2 items-center gap-6">
-                                <div class="md:text-start text-center">
-                                    <p class="mb-0 text-gray-300">© <script>document.write(new Date().getFullYear())</script> Ascenda. Design & Develop with <i class="mdi mdi-heart text-red-600"></i> by <a href="https://shreethemes.in/" target="_blank" class="text-reset">Shreethemes</a>.</p>
-                                </div>
-                
-                                <ul class="list-none md:text-end text-center">
-                                    <li class="inline mx-0.5"><a href="https://1.envato.market/ascenda-angular" target="_blank" class="btn btn-icon btn-sm text-gray-400 hover:text-white border border-gray-800 dark:border-gray-700 rounded-md hover:border-primary dark:hover:border-primary hover:bg-primary dark:hover:bg-primary"><i data-feather="shopping-cart" class="size-4"></i></a></li>
-                                    <li class="inline mx-0.5"><a href="https://dribbble.com/shreethemes" target="_blank" class="btn btn-icon btn-sm text-gray-400 hover:text-white border border-gray-800 dark:border-gray-700 rounded-md hover:border-primary dark:hover:border-primary hover:bg-primary dark:hover:bg-primary"><i data-feather="dribbble" class="size-4"></i></a></li>
-                                    <li class="inline mx-0.5"><a href="http://linkedin.com/company/shreethemes" target="_blank" class="btn btn-icon btn-sm text-gray-400 hover:text-white border border-gray-800 dark:border-gray-700 rounded-md hover:border-primary dark:hover:border-primary hover:bg-primary dark:hover:bg-primary"><i data-feather="linkedin" class="size-4"></i></a></li>
-                                    <li class="inline mx-0.5"><a href="https://www.facebook.com/shreethemes" target="_blank" class="btn btn-icon btn-sm text-gray-400 hover:text-white border border-gray-800 dark:border-gray-700 rounded-md hover:border-primary dark:hover:border-primary hover:bg-primary dark:hover:bg-primary"><i data-feather="facebook" class="size-4"></i></a></li>
-                                    <li class="inline mx-0.5"><a href="https://www.instagram.com/shreethemes/" target="_blank" class="btn btn-icon btn-sm text-gray-400 hover:text-white border border-gray-800 dark:border-gray-700 rounded-md hover:border-primary dark:hover:border-primary hover:bg-primary dark:hover:bg-primary"><i data-feather="instagram" class="size-4"></i></a></li>
-                                    <li class="inline mx-0.5"><a href="https://twitter.com/shreethemes" target="_blank" class="btn btn-icon btn-sm text-gray-400 hover:text-white border border-gray-800 dark:border-gray-700 rounded-md hover:border-primary dark:hover:border-primary hover:bg-primary dark:hover:bg-primary"><i data-feather="twitter" class="size-4"></i></a></li>
-                                </ul>
                             </div>
-                        </div>
-                    </div>
-                </footer>
+                        }
+                    }
+                </div>
             </div>
-
+<!--
             <div class="relative md:block hidden">
                 <div class="map border-0 fixed w-full leading-[0]">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39206.002432144705!2d-95.4973981212445!3d29.709510002925988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640c16de81f3ca5%3A0xf43e0b60ae539ac9!2sGerald+D.+Hines+Waterwall+Park!5e0!3m2!1sen!2sin!4v1566305861440!5m2!1sen!2sin" style="border:0" class="w-full h-screen" allowfullscreen></iframe>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39206.002432144705!2d-95.4973981212445!3d29.709510002925988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640c16de81f3ca5%3A0xf43e0b60ae539ac9!2sGerald+D.+Hines+Waterwall+Park!5e0!3m2!1sen!2sin!4v1566305861440!5m2!1sen!2sin"
+                        title="Property Location Map"
+                        class="w-full h-screen border-0"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div> -->
+        </div>
+
+        <!-- Footer ocupando toda a largura -->
+        <footer class="relative bg-neutral-900 w-full">
+            <div class="py-[30px] px-0">
+                <div class="container-fluid relative px-6">
+                    <div class="flex flex-wrap justify-between items-center gap-4 md:flex-nowrap">
+                        <div class="flex-shrink-0 text-center md:text-left">
+                            <p class="mb-0 text-gray-300 text-sm md:text-base">
+                                <span class="whitespace-nowrap">{{date || 'yyyy'}} Neurolytics.</span>
+                                <span class="whitespace-nowrap">{{'FOOTER.DEVELOPED_WITH' | translate}} <i class="mdi mdi-heart text-red-600"></i> {{'FOOTER.BY' | translate}}</span>
+                                <a href="https://www.neurolytics.com.br/" target="_blank" rel="noopener noreferrer" class="text-reset whitespace-nowrap">Joel Schecheleski</a>
+                            </p>
+                        </div>
+                        <ul class="list-none flex gap-2 flex-shrink-0">
+                            <li><a href="https://www.linkedin.com/in/joelschecheleski/" target="_blank" class="btn btn-icon btn-sm text-gray-400 hover:text-white border border-gray-800 dark:border-gray-700 rounded-md hover:border-primary dark:hover:border-primary hover:bg-primary dark:hover:bg-primary"><i data-feather="linkedin" class="size-4"></i></a></li>
+                            <li><a href="https://www.instagram.com/joelschecheleski/" target="_blank" class="btn btn-icon btn-sm text-gray-400 hover:text-white border border-gray-800 dark:border-gray-700 rounded-md hover:border-primary dark:hover:border-primary hover:bg-primary dark:hover:bg-primary"><i data-feather="instagram" class="size-4"></i></a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
+        </footer>
     </div>
 </section>
 </div>
