@@ -28,7 +28,14 @@
     "HERO_SUBTITLE": "Roguereko porãve ohekóva. Eñe'ẽ ore mba'apohárandi",
     "SEARCH_PLACEHOLDER": "Eheka ne rógape oútava",
     "SEARCH_BUTTON": "Heka",
-    "FEATURED_PROPERTIES": "Óga ojehechahápe"
+    "FEATURED_PROPERTIES": "Óga ojechechahápe",
+    "FILTER": {
+      "LOCATION": "Óga Tendápe",
+      "ALL_PURPOSES": "Opavave Mba'éicha",
+      "ALL_TYPES": "Opavave Tipo",
+      "MIN_AREA": "Área Michĩvéva (m²)",
+      "CLEAR": "Mbogue"
+    }
   },
   "BUY": {
     "TITLE": "Ejuhu ne Rógape Resa'ỹijo",
@@ -41,7 +48,33 @@
     "SUBMIT_OFFER": "Emondo Oferta",
     "PROPERTY_INSPECTION": "Inspección Óga",
     "APPRAISAL": "Tasación",
-    "CLOSING_DEAL": "Ñepyrũ Negocio"
+    "CLOSING_DEAL": "Ñepyrũ Negocio",
+    "STEPS": {
+      "PRE_APPROVAL": {
+        "TITLE": "Kuatia Aprobación Ymave",
+        "DESC": "Hetave joguerekóva oimo'ã peteĩha mba'e ha'eva ojuhu hag̃ua iróga resa'ỹijo, ha katu añetegua ha'e ojejuhu hag̃ua viru peteĩha mba'e. Ascenda omombyrýi proceso Aprobación Ymave Préstamo rehegua ore ecosistema Parceiros Premium ndive térã ehupi nde kuatia Aprobación Ymave."
+      },
+      "SCHEDULE_SHOWING": {
+        "TITLE": "Eplanea Jehecha",
+        "DESC": "Ascenda omoneĩ joguerekóvape oplanea hag̃ua peteĩ jehecha pya'e ha oguereko hag̃ua peteĩ visualización privada tekotevẽ'ỹ heta tapicha oĩ hag̃ua. ¡Nde reiporavo aravo oñemba'apo porãva ndéve!"
+      },
+      "SUBMIT_OFFER": {
+        "TITLE": "Emondo Oferta",
+        "DESC": "Ascenda ombohape joguerekóvape proceso acuerdo jogua rehegua ojapo hag̃ua papeles ndahasýi hag̃ua. Ore flujo mba'apo personalizado ha análise progreso rehegua ndive, reikuaáta upe ne jogua oĩhápe. ¡Ndaipórivéima pumbyry oñembohovái'ỹva ha email ojejapo'ỹva!"
+      },
+      "PROPERTY_INSPECTION": {
+        "TITLE": "Inspección Óga",
+        "DESC": "Mávapa noipotái ojogua gato liebre rehe. Eplanea peteĩ inspección peteĩ inspector licenciado ndive ha emondo mba'e oñemyatyrõ hag̃ua plataforma Ascenda rupive."
+      },
+      "APPRAISAL": {
+        "TITLE": "Tasación",
+        "DESC": "Ascenda ohechajevy proceso tasación rehegua ome'ẽ hag̃ua seguridad óga rejogúva oguejy térã ohupive hepy rejehepyme'ẽva."
+      },
+      "CLOSING_DEAL": {
+        "TITLE": "Ñepyrũ Negocio",
+        "DESC": "Ipahápe paquete ñemboty oñemondo oficina Títulos-pe, ha og̃uahẽ ára... ¡Reñandu ne róga resa'ỹijo!"
+      }
+    }
   },
   "SELL": {
     "TITLE": "Eñemuhã Pya'eve. Eñongatu Hetave.",
@@ -138,5 +171,57 @@
     "NO_RESULTS": "Ndojejuhúi mba'eve",
     "ERROR": "Jejavy",
     "SUCCESS": "Oĩporã"
+  },
+  "FILTER": {
+    "LOCATION": "Tendápe",
+    "LOCATION_PLACEHOLDER": "Táva, Barrio térã Dirección",
+    "PURPOSE_LABEL": "Mba'éicha",
+    "ALL_PURPOSES": "Opavave Mba'éicha",
+    "PROPERTY_TYPE_LABEL": "Óga Tipo",
+    "ALL_TYPES": "Opavave Tipo",
+    "SHOW_ADVANCED": "Avanzado",
+    "HIDE_ADVANCED": "Ñomi Filtro",
+    "PRICE_RANGE": "Hepy Rango",
+    "MIN_PRICE": "Hepy Michĩvéva",
+    "MAX_PRICE": "Hepy Tuichavéva",
+    "AREA_RANGE": "Área Rango",
+    "MIN_AREA": "Área Michĩvéva",
+    "MAX_AREA": "Área Tuichavéva",
+    "ADVANCED_FILTERS": "Avanzado",
+    "BEDROOMS": "Kyhyjerã",
+    "BATHROOMS": "Ñu'ũha",
+    "PARKING": "Estacionamiento",
+    "ANY": "Oimeraẽva",
+    "SEARCH": "Heka",
+    "CLEAR": "Mbogue Filtro",
+    "PURPOSE": {
+      "SALE": "Jogua",
+      "RENT": "Alquila",
+      "EXCHANGE": "Ñemoambue"
+    },
+    "PROPERTY_TYPE": {
+      "HOUSE": "Óga",
+      "APARTMENT": "Apartamento",
+      "TWOSTORYHOUSE": "Óga Mokõi Piso",
+      "CHALET": "Chalet",
+      "SEMIDETACHEDHOUSE": "Óga Ojuapyréva",
+      "BUNGALOW": "Bungalow",
+      "STUDIOAPARTMENT": "Monoambiente",
+      "FLAT": "Flat",
+      "LOFT": "Loft",
+      "STUDIO": "Estudio",
+      "PENTHOUSE": "Penthouse",
+      "DUPLEX": "Dúplex",
+      "TRIPLEX": "Triplex",
+      "LUXURYPENTHOUSE": "Penthouse Lujo",
+      "TOWNHOUSE": "Óga Táva",
+      "MANSION": "Mansión",
+      "STORE": "Ñemuha",
+      "OFFICE": "Oficina",
+      "WAREHOUSE": "Almacén",
+      "LAND": "Yvy",
+      "FARM": "Kokue",
+      "LOT": "Lote"
+    }
   }
 }

@@ -25,7 +25,11 @@
             ],
             "styles": [
               "src/style.css",
-              "src/assets/css/tailwind.css"
+              "src/assets/css/tailwind.css",
+              "node_modules/lightgallery/css/lightgallery.css",
+              "node_modules/lightgallery/css/lg-video.css",
+              "node_modules/lightgallery/css/lg-zoom.css",
+              "node_modules/lightgallery/css/lg-thumbnail.css"
             ]
           },
           "configurations": {
@@ -81,7 +85,11 @@
             ],
             "styles": [
               "src/style.css",
-              "src/assets/css/tailwind.css"
+              "src/assets/css/tailwind.css",
+              "node_modules/lightgallery/css/lightgallery.css",
+              "node_modules/lightgallery/css/lg-video.css",
+              "node_modules/lightgallery/css/lg-zoom.css",
+              "node_modules/lightgallery/css/lg-thumbnail.css"
             ]
           }
         }

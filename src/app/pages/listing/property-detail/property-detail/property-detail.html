@@ -1,124 +1,234 @@
 <app-navbar/>
 
-<section class="relative md:pb-24 pb-16 mt-20">
+<!-- Loading State -->
+@if (isLoading) {
+  <section class="relative md:pb-24 pb-16 mt-20">
+    <div class="container">
+      <div class="flex justify-center items-center py-24">
+        <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-primary"></div>
+      </div>
+    </div>
+  </section>
+}
+
+<!-- Error State -->
+@if (error && !isLoading) {
+  <section class="relative md:pb-24 pb-16 mt-20">
+    <div class="container">
+      <div class="text-center py-24">
+        <p class="text-red-500 text-lg">{{ error }}</p>
+        <a [routerLink]="['/']" class="btn bg-primary hover:bg-primary-dark text-white rounded-md mt-4">
+          Voltar para Home
+        </a>
+      </div>
+    </div>
+  </section>
+}
+
+<!-- Content -->
+@if (property && !isLoading && !error) {
+  <section class="relative md:pb-24 pb-16 mt-20">
     <div class="container-fluid">
-        <div class="md:flex mt-4">
-            <div class="lg:w-1/2 md:w-1/2 p-1">
-                <lightgallery [settings]="settings" [onBeforeSlide]="onBeforeSlide">
-                    <a data-lg-size="480-475-480, 800-791-800, 1406-1390" class="gallery-item"
-                      [routerLink]="[]"
-                     >
-                     <div class="group relative overflow-hidden">
-                         <img [src]="'/assets/images/property/single/1.jpg'" alt="">
-                         <div class="absolute inset-0 group-hover:bg-slate-900/70 duration-500 ease-in-out"></div>
-                         <div class="absolute top-1/2 -translate-y-1/2 start-0 end-0 text-center invisible group-hover:visible">
-                             <a href="assets/images/property/single/1.jpg" class="btn btn-icon bg-primary hover:bg-primary-dark text-white !rounded-full lightbox"><i class="uil uil-camera"></i></a>
-                         </div>
-                     </div>
+        <!-- Galeria Unificada -->
+        <lightgallery [settings]="settings" [onAfterSlide]="onAfterSlide" class="gallery-unified">
+          <div class="md:flex mt-4">
+              <!-- Primeira imagem (Grande - Lado Esquerdo) -->
+              <div class="lg:w-1/2 md:w-1/2 p-1">
+                  @if (property.images && property.images.length > 0) {
+                    <a class="gallery-item"
+                       [attr.data-src]="property.images[0].public_url || '/assets/images/property/1.jpg'">
+                      <div class="group relative overflow-hidden min-h-[400px] h-full cursor-pointer">
+                          <img [src]="property.images[0].public_url || '/assets/images/property/1.jpg'"
+                               [alt]="property.images[0].title || property.title"
+                               [title]="property.images[0].title || property.title"
+                               class="w-full h-full object-cover">
+                          <div class="absolute inset-0 group-hover:bg-slate-900/70 duration-500 ease-in-out"></div>
+
+                          <!-- Título no topo -->
+                          @if (property.images[0].title) {
+                            <div class="absolute top-0 left-0 right-0 px-4 py-3 bg-gradient-to-b from-black/60 to-transparent backdrop-blur-sm">
+                              <h3 class="text-white font-semibold text-lg">{{ property.images[0].title }}</h3>
+                            </div>
+                          }
+
+                          <!-- Descrição no rodapé -->
+                          @if (property.images[0].description) {
+                            <div class="absolute bottom-0 left-0 right-0 px-4 py-3 bg-gradient-to-t from-black/70 to-transparent backdrop-blur-md">
+                              <p class="text-white text-sm">{{ property.images[0].description }}</p>
+                            </div>
+                          }
+
+                          <div class="absolute top-1/2 -translate-y-1/2 start-0 end-0 text-center invisible group-hover:visible">
+                              <div class="btn btn-icon bg-primary hover:bg-primary-dark text-white !rounded-full">
+                                <i class="uil uil-camera"></i>
+                              </div>
+                          </div>
+                      </div>
                     </a>
-                  </lightgallery>
-            </div>
-
-            <div class="lg:w-1/2 md:w-1/2">
-                <div class="flex">
-                    <div class="w-1/2 p-1">
-                        <lightgallery [settings]="settings" [onBeforeSlide]="onBeforeSlide">
-                            <a data-lg-size="480-475-480, 800-791-800, 1406-1390" class="gallery-item"
-                        src="assets/images/property/single/2.jpg"
-                        >
-                                <div class="group relative overflow-hidden">
-                                    <img src="assets/images/property/single/2.jpg" alt="">
-                                    <div class="absolute inset-0 group-hover:bg-slate-900/70 duration-500 ease-in-out"></div>
-                                    <div class="absolute top-1/2 -translate-y-1/2 start-0 end-0 text-center invisible group-hover:visible">
-                                        <a href="assets/images/property/single/2.jpg" class="btn btn-icon bg-primary hover:bg-primary-dark text-white !rounded-full lightbox"><i class="uil uil-camera"></i></a>
-                                    </div>
-                                </div>
-                            </a>
-                        </lightgallery>
+                  } @else {
+                    <div class="group relative overflow-hidden">
+                        <img src="/assets/images/property/1.jpg" alt="Sem imagem disponível">
                     </div>
-                    <div class="w-1/2 p-1">
-                        <lightgallery [settings]="settings" [onBeforeSlide]="onBeforeSlide">
-                            <a data-lg-size="480-475-480, 800-791-800, 1406-1390" class="gallery-item" src="assets/images/property/single/3.jpg"
-                        >
-                                <div class="group relative overflow-hidden">
-                                    <img src="assets/images/property/single/3.jpg" alt="">
-                                    <div class="absolute inset-0 group-hover:bg-slate-900/70 duration-500 ease-in-out"></div>
-                                    <div class="absolute top-1/2 -translate-y-1/2 start-0 end-0 text-center invisible group-hover:visible">
-                                        <a href="assets/images/property/single/3.jpg" class="btn btn-icon bg-primary hover:bg-primary-dark text-white !rounded-full lightbox"><i class="uil uil-camera"></i></a>
-                                    </div>
+                  }
+              </div>
+
+              <!-- Demais imagens (Lado Direito) -->
+              <div class="lg:w-1/2 md:w-1/2">
+                  @for (row of imageRows; track $index) {
+                    <div class="flex">
+                      @for (image of row; track image.id) {
+                        <div class="w-1/2 p-1">
+                            <!-- Vídeo do YouTube -->
+                            @if (image.isVideo) {
+                              <a class="gallery-item"
+                                 [attr.data-src]="'https://img.youtube.com/vi/' + getYoutubeVideoId(image.public_url) + '/maxresdefault.jpg'">
+                                <div class="group relative overflow-hidden min-h-[190px] h-full bg-black flex items-center justify-center cursor-pointer">
+                                      <img [src]="'https://img.youtube.com/vi/' + getYoutubeVideoId(image.public_url) + '/maxresdefault.jpg'"
+                                           alt="{{ image.title }}"
+                                           class="w-full h-full object-cover">
+                                      <div class="absolute inset-0 bg-gradient-to-br from-red-600/20 to-red-800/20"></div>
+                                      
+                                      <!-- Ícone de Play centralizado -->
+                                      <div class="absolute inset-0 flex items-center justify-center z-10">
+                                        <div class="w-20 h-20 rounded-full bg-red-600 flex items-center justify-center group-hover:bg-red-700 transition-all duration-300 group-hover:scale-110 shadow-2xl">
+                                          <i class="uil uil-play text-white text-4xl ml-1"></i>
+                                        </div>
+                                      </div>
+                                      
+                                      <!-- Texto no rodapé -->
+                                      <div class="absolute bottom-0 left-0 right-0 px-3 py-2 bg-gradient-to-t from-black/80 to-transparent z-10">
+                                        <p class="text-white font-semibold text-sm">{{ image.title }}</p>
+                                        @if (image.description) {
+                                          <p class="text-white text-xs mt-1">{{ image.description }}</p>
+                                        }
+                                      </div>
                                 </div>
-                            </a>
-                        </lightgallery>
+                              </a>
+                            } @else{
+                              <!-- Imagem normal -->
+                              <a class="gallery-item"
+                                 [attr.data-src]="image.public_url || '/assets/images/property/1.jpg'">
+                                  <div class="group relative overflow-hidden min-h-[190px] h-full cursor-pointer">
+                                      <img [src]="image.public_url || '/assets/images/property/1.jpg'"
+                                           [alt]="image.title || property.title"
+                                           [title]="image.title || property.title"
+                                           class="w-full h-full object-cover">
+                                      <div class="absolute inset-0 group-hover:bg-slate-900/70 duration-500 ease-in-out"></div>
 
+                                      <!-- Título no topo -->
+                                      @if (image.title) {
+                                        <div class="absolute top-0 left-0 right-0 px-3 py-2 bg-gradient-to-b from-black/60 to-transparent backdrop-blur-sm">
+                                          <h3 class="text-white font-semibold text-sm">{{ image.title }}</h3>
+                                        </div>
+                                      }
+
+                                      <!-- Descrição no rodapé -->
+                                      @if (image.description) {
+                                        <div class="absolute bottom-0 left-0 right-0 px-3 py-2 bg-gradient-to-t from-black/70 to-transparent backdrop-blur-md">
+                                          <p class="text-white text-xs line-clamp-2">{{ image.description }}</p>
+                                        </div>
+                                      }
+
+                                      <div class="absolute top-1/2 -translate-y-1/2 start-0 end-0 text-center invisible group-hover:visible">
+                                          <div class="btn btn-icon bg-primary hover:bg-primary-dark text-white !rounded-full">
+                                            <i class="uil uil-camera"></i>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </a>
+                            }
+                        </div>
+                      }
                     </div>
-                </div>
-
-                <div class="flex">
-                    <div class="w-1/2 p-1">
-                        <lightgallery [settings]="settings" [onBeforeSlide]="onBeforeSlide">
-                            <a data-lg-size="480-475-480, 800-791-800, 1406-1390" class="gallery-item"
-                        src="assets/images/property/single/4.jpg"
-                        >
-                                <div class="group relative overflow-hidden">
-                                    <img src="assets/images/property/single/4.jpg" alt="">
-                                    <div class="absolute inset-0 group-hover:bg-slate-900/70 duration-500 ease-in-out"></div>
-                                    <div class="absolute top-1/2 -translate-y-1/2 start-0 end-0 text-center invisible group-hover:visible">
-                                        <a href="assets/images/property/single/4.jpg" class="btn btn-icon bg-primary hover:bg-primary-dark text-white !rounded-full lightbox"><i class="uil uil-camera"></i></a>
-                                    </div>
-                                </div>
-                            </a>
-                        </lightgallery>
-                    </div>
-                    <div class="w-1/2 p-1">
-                        <lightgallery [settings]="settings" [onBeforeSlide]="onBeforeSlide">
-                            <a data-lg-size="480-475-480, 800-791-800, 1406-1390" class="gallery-item" src="assets/images/property/single/5.jpg"
-                        >
-                                <div class="group relative overflow-hidden">
-                                    <img src="assets/images/property/single/5.jpg" alt="">
-                                    <div class="absolute inset-0 group-hover:bg-slate-900/70 duration-500 ease-in-out"></div>
-                                    <div class="absolute top-1/2 -translate-y-1/2 start-0 end-0 text-center invisible group-hover:visible">
-                                        <a href="assets/images/property/single/5.jpg" class="btn btn-icon bg-primary hover:bg-primary-dark text-white !rounded-full lightbox"><i class="uil uil-camera"></i></a>
-                                    </div>
-                                </div>
-                            </a>
-                        </lightgallery>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
+                  }
+              </div>
+          </div>
+        </lightgallery>
     </div>
 
     <div class="container md:mt-24 mt-16">
         <div class="md:flex">
             <div class="lg:w-2/3 md:w-1/2 md:p-4 px-3">
-                <h4 class="text-2xl font-medium">10765 Hillshire Ave, Baton Rouge, LA 70810, USA</h4>
+                <h4 class="text-2xl font-medium">{{ property.title }}</h4>
 
-                <ul class="py-6 flex items-center list-none">
-                    <li class="flex items-center lg:me-6 me-4">
-                        <i class="uil uil-compress-arrows lg:text-3xl text-2xl me-2 text-primary"></i>
-                        <span class="lg:text-xl">8000sqf</span>
-                    </li>
+                @if (property.address || property.neighborhood || property.city) {
+                  <p class="text-slate-500 mt-2">
+                    <i class="uil uil-map-marker"></i>
+                    {{ property.address }}{{ property.address && (property.neighborhood || property.city) ? ', ' : '' }}{{ property.neighborhood }}{{ property.neighborhood && property.city ? ', ' : '' }}{{ property.city }}
+                  </p>
+                }
 
-                    <li class="flex items-center lg:me-6 me-4">
-                        <i class="uil uil-bed-double lg:text-3xl text-2xl me-2 text-primary"></i>
-                        <span class="lg:text-xl">4 {{'PROPERTY_DETAIL.BEDS' | translate}}</span>
-                    </li>
+                <ul class="py-6 flex items-center list-none flex-wrap gap-4">
+                    @if (property.build_area || property.land_area) {
+                      <li class="flex items-center lg:me-6 me-4">
+                          <i class="uil uil-compress-arrows lg:text-3xl text-2xl me-2 text-primary"></i>
+                          <span class="lg:text-xl">{{ property.build_area || property.land_area }}m²</span>
+                      </li>
+                    }
 
-                    <li class="flex items-center">
-                        <i class="uil uil-bath lg:text-3xl text-2xl me-2 text-primary"></i>
-                        <span class="lg:text-xl">4 {{'PROPERTY_DETAIL.BATHS' | translate}}</span>
-                    </li>
+                    @if (property.qtt_bedrooms) {
+                      <li class="flex items-center lg:me-6 me-4">
+                          <i class="uil uil-bed-double lg:text-3xl text-2xl me-2 text-primary"></i>
+                          <span class="lg:text-xl">{{ property.qtt_bedrooms }} {{'PROPERTY_DETAIL.BEDS' | translate}}</span>
+                      </li>
+                    }
+
+                    @if (property.qtt_bathrooms) {
+                      <li class="flex items-center">
+                          <i class="uil uil-bath lg:text-3xl text-2xl me-2 text-primary"></i>
+                          <span class="lg:text-xl">{{ property.qtt_bathrooms }} {{'PROPERTY_DETAIL.BATHS' | translate}}</span>
+                      </li>
+                    }
+
+                    @if (property.qtt_parking_spaces) {
+                      <li class="flex items-center">
+                          <i class="uil uil-car lg:text-3xl text-2xl me-2 text-primary"></i>
+                          <span class="lg:text-xl">{{ property.qtt_parking_spaces }}</span>
+                      </li>
+                    }
                 </ul>
 
-                <p class="text-slate-400">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-                <p class="text-slate-400 mt-4">But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.</p>
-                <p class="text-slate-400 mt-4">Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.</p>
+                <!-- Links de Redes Sociais e Vídeos -->
+                @if(property.instagram_url || property.youtube_url || property.other_url) {
+                  <div class="flex gap-3 mt-4 mb-4">
+                    @if(property.instagram_url) {
+                      <a
+                        [href]="property.instagram_url"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="group inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 hover:scale-110 transition-transform duration-300 shadow-lg hover:shadow-xl"
+                        title="Ver no Instagram">
+                        <i class="uil uil-instagram text-white text-2xl leading-none"></i>
+                      </a>
+                    }
+                    @if(property.youtube_url) {
+                      <a
+                        [href]="property.youtube_url"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="group inline-flex items-center justify-center w-12 h-12 rounded-full bg-red-600 hover:bg-red-700 hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl"
+                        title="Ver vídeo no YouTube">
+                        <i class="uil uil-youtube text-white text-2xl leading-none"></i>
+                      </a>
+                    }
+                    @if(property.other_url) {
+                      <a
+                        [href]="property.other_url"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="group inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary hover:bg-primary-dark hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl"
+                        title="Ver mais informações">
+                        <i class="uil uil-link text-white text-2xl leading-none"></i>
+                      </a>
+                    }
+                  </div>
+                }
 
-                <div class="w-full leading-[0] border-0 mt-6">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39206.002432144705!2d-95.4973981212445!3d29.709510002925988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640c16de81f3ca5%3A0xf43e0b60ae539ac9!2sGerald+D.+Hines+Waterwall+Park!5e0!3m2!1sen!2sin!4v1566305861440!5m2!1sen!2sin" style="border:0" class="w-full h-[500px]" allowfullscreen></iframe>
-                </div>
+                @if (property.description) {
+                  <p class="text-slate-400 whitespace-pre-line">{{ property.description }}</p>
+                } @else {
+                  <p class="text-slate-400">Descrição não disponível.</p>
+                }
             </div>
 
             <div class="lg:w-1/3 md:w-1/2 md:p-4 px-3 mt-8 md:mt-0">
@@ -128,35 +238,40 @@
                             <h5 class="text-2xl font-medium">{{'PROPERTY_DETAIL.PRICE' | translate}}</h5>
 
                             <div class="flex justify-between items-center mt-4">
-                                <span class="text-xl font-medium">$ 45,231</span>
+                                <div>
+                                  <span class="text-xl font-medium">{{ formattedPrice }}</span>
+                                  @if (priceSubLabel) {
+                                    <span class="text-sm text-slate-500">{{ priceSubLabel }}</span>
+                                  }
+                                </div>
 
-                                <span class="bg-primary/10 text-primary text-sm px-2.5 py-0.75 rounded h-6">{{'PROPERTY_DETAIL.FOR_SALE' | translate}}</span>
+                                @if (property.purpose === 'sale') {
+                                  <span class="bg-primary/10 text-primary text-sm px-2.5 py-0.75 rounded h-6">{{'PROPERTY_DETAIL.FOR_SALE' | translate}}</span>
+                                } @else if (property.purpose === 'rent') {
+                                  <span class="bg-blue-500/10 text-blue-500 text-sm px-2.5 py-0.75 rounded h-6">Para Alugar</span>
+                                } @else {
+                                  <span class="bg-green-500/10 text-green-500 text-sm px-2.5 py-0.75 rounded h-6">Permuta</span>
+                                }
                             </div>
 
-                            <ul class="list-none mt-4">
-                                <li class="flex justify-between items-center">
-                                    <span class="text-slate-400 text-sm">{{'PROPERTY_DETAIL.DAYS_ON_SITE' | translate}}</span>
-                                    <span class="font-medium text-sm">124 {{'PROPERTY_DETAIL.DAYS' | translate}}</span>
-                                </li>
-
-                                <li class="flex justify-between items-center mt-2">
-                                    <span class="text-slate-400 text-sm">{{'PROPERTY_DETAIL.PRICE_PER_SQFT' | translate}}</span>
-                                    <span class="font-medium text-sm">$ 186</span>
-                                </li>
-
-                                <li class="flex justify-between items-center mt-2">
-                                    <span class="text-slate-400 text-sm">{{'PROPERTY_DETAIL.MONTHLY_PAYMENT' | translate}}</span>
-                                    <span class="font-medium text-sm">$ 1497/{{'PROPERTY_DETAIL.MONTHLY' | translate}}</span>
-                                </li>
-                            </ul>
                         </div>
 
                         <div class="flex">
                             <div class="p-1 w-1/2">
-                                <a [routerLink]="[]" class="btn bg-primary hover:bg-primary-dark text-white rounded-md w-full">{{'PROPERTY_DETAIL.BOOK_NOW' | translate}}</a>
+                                <button
+                                  (click)="openWhatsAppBooking()"
+                                  class="btn bg-primary hover:bg-primary-dark text-white rounded-md w-full"
+                                  title="Reservar via WhatsApp">
+                                  {{'PROPERTY_DETAIL.BOOK_NOW' | translate}}
+                                </button>
                             </div>
                             <div class="p-1 w-1/2">
-                                <a [routerLink]="[]" class="btn bg-primary hover:bg-primary-dark text-white rounded-md w-full">{{'PROPERTY_DETAIL.OFFER_NOW' | translate}}</a>
+                                <button
+                                  (click)="openWhatsAppOffer()"
+                                  class="btn bg-primary hover:bg-primary-dark text-white rounded-md w-full"
+                                  title="Fazer oferta via WhatsApp">
+                                  {{'PROPERTY_DETAIL.OFFER_NOW' | translate}}
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -172,6 +287,8 @@
             </div>
         </div>
     </div>
-</section>
+  </section>
+}
+
 
 <app-footer/>

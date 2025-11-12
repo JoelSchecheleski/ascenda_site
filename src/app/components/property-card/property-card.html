@@ -1,0 +1,95 @@
+<div class="property-card-container">
+  <!-- Card com imagem de fundo -->
+  <div class="property-card" (click)="onCardClick()">
+    <!-- Imagem de fundo com fallback -->
+    <div class="card-image" 
+         [style.background-image]="'url(' + currentImage + ')'"
+         [style.background-color]="'#484a2a'">
+      <!-- Overlay escuro sutil -->
+      <div class="image-overlay"></div>
+    </div>
+
+    <!-- Indicador de imagens (se houver múltiplas) -->
+    @if (hasMultipleImages) {
+      <div class="image-indicators">
+        @for (img of property.images; track img.id; let i = $index) {
+          <div class="indicator" [class.active]="i === currentImageIndex"></div>
+        }
+      </div>
+    }
+
+    <!-- Informações com efeito glassmorphism na parte inferior -->
+    <div class="card-info-glass">
+      <!-- Título -->
+      <h3 class="property-title">{{ property.title }}</h3>
+
+      <!-- Preço e tipo -->
+      <div class="price-row">
+        <div class="price-container">
+          <span class="price">{{ formattedPrice }}</span>
+          @if (priceSubLabel) {
+            <span class="price-sublabel">{{ priceSubLabel }}</span>
+          }
+        </div>
+      </div>
+
+      <!-- Localização se disponível -->
+      @if (property.neighborhood || property.city) {
+        <div class="location">
+          <i class="uil uil-map-marker"></i>
+          <span>{{ property.neighborhood }}{{ property.neighborhood && property.city ? ', ' : '' }}{{ property.city }}</span>
+        </div>
+      }
+
+      <!-- Ícones de informação -->
+      <div class="info-icons">
+        @if (displayBedrooms) {
+          <div class="icon-info">
+            <i class="uil uil-bed"></i>
+            <span>{{ displayBedrooms }}</span>
+          </div>
+        }
+        
+        @if (displayBathrooms) {
+          <div class="icon-info">
+            <i class="uil uil-bath"></i>
+            <span>{{ displayBathrooms }}</span>
+          </div>
+        }
+        
+        @if (displayParkingSpaces) {
+          <div class="icon-info">
+            <i class="uil uil-car"></i>
+            <span>{{ displayParkingSpaces }}</span>
+          </div>
+        }
+        
+        @if (displayArea) {
+          <div class="icon-info">
+            <i class="uil uil-expand-arrows"></i>
+            <span>{{ displayArea }}m²</span>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Botões de navegação de imagens -->
+    @if (hasMultipleImages) {
+      <button 
+        class="nav-button nav-left" 
+        (click)="navigateImage(-1); $event.stopPropagation()"
+        aria-label="Imagem anterior"
+        type="button">
+        <i class="uil uil-angle-left"></i>
+      </button>
+      
+      <button 
+        class="nav-button nav-right" 
+        (click)="navigateImage(1); $event.stopPropagation()"
+        aria-label="Próxima imagem"
+        type="button">
+        <i class="uil uil-angle-right"></i>
+      </button>
+    }
+  </div>
+</div>

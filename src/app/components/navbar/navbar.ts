@@ -19,7 +19,7 @@ import * as feather from 'feather-icons';
 export class Navbar implements OnInit, AfterViewInit {
   currentLanguage: string = 'es';
   showLanguageMenu: boolean = false;
-  
+
   languages = [
     { code: 'es', name: 'Español', flag: '/assets/lag/es.svg' },
     { code: 'pt-BR', name: 'Português', flag: '/assets/lag/pt.svg' },
@@ -31,7 +31,7 @@ export class Navbar implements OnInit, AfterViewInit {
     // Configurar idiomas disponíveis
     this.translate.addLangs(['es', 'pt-BR', 'en', 'gn']);
     this.translate.setDefaultLang('es');
-    
+
     // Verificar se há idioma salvo no localStorage
     const savedLang = localStorage.getItem('language');
     if (savedLang && this.translate.langs.includes(savedLang)) {
@@ -46,23 +46,23 @@ export class Navbar implements OnInit, AfterViewInit {
     console.log(this.router.url);
     window.scrollTo(0, 0);
   }
-  
+
   switchLanguage(lang: string): void {
     this.currentLanguage = lang;
     this.translate.use(lang);
     localStorage.setItem('language', lang);
     this.showLanguageMenu = false;
   }
-  
+
   toggleLanguageMenu(): void {
     this.showLanguageMenu = !this.showLanguageMenu;
   }
-  
+
   getCurrentLanguageName(): string {
     const lang = this.languages.find(l => l.code === this.currentLanguage);
     return lang ? lang.name : 'Español';
   }
-  
+
   getCurrentLanguageFlag(): string {
     const lang = this.languages.find(l => l.code === this.currentLanguage);
     return lang ? lang.flag : '/assets/lag/es.svg';
@@ -172,5 +172,16 @@ export class Navbar implements OnInit, AfterViewInit {
   @Input() childMessage?: string
   @Input() navLight?: boolean
   @Input() tagline: boolean | undefined
+
+  /**
+   * Abre o WhatsApp em uma nova aba com mensagem pré-definida
+   * Substitua o número pelo número real da empresa (incluindo código do país)
+   */
+  openWhatsApp(): void {
+    const phoneNumber = '+5547996688829';
+    const message = encodeURIComponent('Olá! Gostaria de mais informações sobre os imóveis.');
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+    window.open(whatsappUrl, '_blank');
+  }
 
 }
