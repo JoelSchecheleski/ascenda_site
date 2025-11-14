@@ -1,0 +1,19 @@
+
+> ascenda@2.7.0 start
+> ng serve
+
+Node.js version v23.6.0 detected.
+Odd numbered Node.js versions will not enter LTS status and should not be used for production. For more information, please see https://nodejs.org/en/about/previous-releases/.
+[33m>[39m Building...
+[32m√[39m Building...
+Initial chunk files | Names         |  Raw size
+main.js             | main          | 329.25 kB | 
+styles.css          | styles        | 166.61 kB | 
+
+                    | Initial total | 495.85 kB
+
+Application bundle generation complete. [14.766 seconds]
+
+Watch mode enabled. Watching for file changes...
+NOTE: Raw file sizes do not reflect development server per-request transformations.
+  ➜  Local:   http://localhost:4200/

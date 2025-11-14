@@ -8,19 +8,20 @@
 
                 <p class="text-xl max-w-xl mx-auto">{{'HOME.HERO_SUBTITLE' | translate}}</p>
 
-                <div class="mt-6">
+                <!-- <div class="mt-6">
                     <ul class="list-none relative">
                         <li class="inline-block relative"><a [routerLink]="[]"><img [src]="'/assets/images/client/perfil_joel.jpg'" class="size-12 rounded-full shadow-md shadow-slate-100 dark:shadow-slate-800 border-4 border-white dark:border-slate-900 relative hover:z-1 hover:scale-105 transition-all duration-500" alt=""></a></li>
                         <li class="inline-block relative -ms-4"><a [routerLink]="[]"><img [src]="'/assets/images/client/perfil_joel.jpg'" class="size-12 rounded-full shadow-md shadow-slate-100 dark:shadow-slate-800 border-4 border-white dark:border-slate-900 relative hover:z-1 hover:scale-105 transition-all duration-500" alt=""></a></li>
-                        <li class="inline-block relative -ms-4"><a [routerLink]="[]"><img [src]="'/assets/images/client/perfil_joel.jpg'" class="size-12 rounded-full shadow-md shadow-slate-100 dark:shadow-slate-800 border-4 border-white dark:border-slate-900 relative hover:z-1 hover:scale-105 transition-all duration-500" alt=""></a></li>
+                        <li class="inline-block relative -ms-4"><a [routerLink]="[]"><img [src]="'/assets/images/client/perfil_joel.jpg'" class="size-12 rounded-full shadow-md shadow-slate-100 dark:shadow-slate-800 border-4 border-white dark:border-slate-900 relative hover:z-1 hover:scale-105 transition-all duration-500" alt=""></a></li> -->
 <!--                        <li class="inline-block relative -ms-4"><a [routerLink]="[]"><img [src]="'/assets/images/client/perfil_joel.jpg'" class="size-12 rounded-full shadow-md shadow-slate-100 dark:shadow-slate-800 border-4 border-white dark:border-slate-900 relative hover:z-1 hover:scale-105 transition-all duration-500" alt=""></a></li>-->
 <!--                        <li class="inline-block relative -ms-4"><a [routerLink]="[]"><img [src]="'assets/images/client/perfil_joel.jpg'" class="size-12 rounded-full shadow-md shadow-slate-100 dark:shadow-slate-800 border-4 border-white dark:border-slate-900 relative hover:z-1 hover:scale-105 transition-all duration-500" alt=""></a></li>-->
-                    </ul>
-                </div>
+                    <!-- </ul>
+                </div> -->
 
                 <div class="subcribe-form z-1 max-w-xl mx-auto mt-8">
                     <form class="relative" (submit)="onHeroSearch($event)">
                         <i data-feather="search" class="size-5 absolute top-3.5 start-4"></i>
+                        <label for="search_name" class="sr-only">{{'HOME.SEARCH_PLACEHOLDER' | translate}}</label>
                         <input
                           type="text"
                           id="search_name"

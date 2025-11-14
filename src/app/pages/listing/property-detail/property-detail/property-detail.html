@@ -36,7 +36,8 @@
               <div class="lg:w-1/2 md:w-1/2 p-1">
                   @if (property.images && property.images.length > 0) {
                     <a class="gallery-item"
-                       [attr.data-src]="property.images[0].public_url || '/assets/images/property/1.jpg'">
+                       [attr.data-src]="property.images[0].public_url || '/assets/images/property/1.jpg'"
+                       [title]="property.images[0].title || property.title">
                       <div class="group relative overflow-hidden min-h-[400px] h-full cursor-pointer">
                           <img [src]="property.images[0].public_url || '/assets/images/property/1.jpg'"
                                [alt]="property.images[0].title || property.title"
@@ -81,20 +82,22 @@
                             <!-- Vídeo do YouTube -->
                             @if (image.isVideo) {
                               <a class="gallery-item"
-                                 [attr.data-src]="'https://img.youtube.com/vi/' + getYoutubeVideoId(image.public_url) + '/maxresdefault.jpg'">
+                                 [attr.data-src]="'https://img.youtube.com/vi/' + getYoutubeVideoId(image.public_url) + '/maxresdefault.jpg'"
+                                 [title]="image.title || 'Vídeo do imóvel'">
                                 <div class="group relative overflow-hidden min-h-[190px] h-full bg-black flex items-center justify-center cursor-pointer">
                                       <img [src]="'https://img.youtube.com/vi/' + getYoutubeVideoId(image.public_url) + '/maxresdefault.jpg'"
-                                           alt="{{ image.title }}"
+                                           [alt]="image.title || 'Vídeo do imóvel'"
+                                           [title]="image.title || 'Vídeo do imóvel'"
                                            class="w-full h-full object-cover">
                                       <div class="absolute inset-0 bg-gradient-to-br from-red-600/20 to-red-800/20"></div>
-                                      
+
                                       <!-- Ícone de Play centralizado -->
                                       <div class="absolute inset-0 flex items-center justify-center z-10">
                                         <div class="w-20 h-20 rounded-full bg-red-600 flex items-center justify-center group-hover:bg-red-700 transition-all duration-300 group-hover:scale-110 shadow-2xl">
                                           <i class="uil uil-play text-white text-4xl ml-1"></i>
                                         </div>
                                       </div>
-                                      
+
                                       <!-- Texto no rodapé -->
                                       <div class="absolute bottom-0 left-0 right-0 px-3 py-2 bg-gradient-to-t from-black/80 to-transparent z-10">
                                         <p class="text-white font-semibold text-sm">{{ image.title }}</p>
@@ -107,7 +110,8 @@
                             } @else{
                               <!-- Imagem normal -->
                               <a class="gallery-item"
-                                 [attr.data-src]="image.public_url || '/assets/images/property/1.jpg'">
+                                 [attr.data-src]="image.public_url || '/assets/images/property/1.jpg'"
+                                 [title]="image.title || property.title">
                                   <div class="group relative overflow-hidden min-h-[190px] h-full cursor-pointer">
                                       <img [src]="image.public_url || '/assets/images/property/1.jpg'"
                                            [alt]="image.title || property.title"

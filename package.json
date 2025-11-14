@@ -1,7 +1,7 @@
 {
   "name": "ascenda",
   "version": "2.7.0",
-  "description": "Ascenda Real Estate Landing & Admin Dashboard Template",
+  "description": "Ascenda provision of services",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
