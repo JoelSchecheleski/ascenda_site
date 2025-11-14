@@ -1,13 +1,14 @@
 <div class="property-filter bg-white dark:bg-slate-900 rounded-xl shadow-md p-6">
   <!-- Filtros Básicos -->
   <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4">
-    
+
     <!-- Localização -->
     <div>
-      <label class="form-label font-medium text-slate-900 dark:text-white">
+      <label for="filter-location" class="form-label font-medium text-slate-900 dark:text-white">
         {{'FILTER.LOCATION' | translate}}
       </label>
       <input
+        id="filter-location"
         type="text"
         [(ngModel)]="location"
         (ngModelChange)="onFilterChange()"
@@ -67,15 +68,16 @@
 
   <!-- Filtros de Faixa de Preço e Área -->
   <div class="grid lg:grid-cols-2 md:grid-cols-1 grid-cols-1 gap-4 mt-4">
-    
+
     <!-- Faixa de Preço -->
     @if (selectedPurpose) {
       <div>
-        <label class="form-label font-medium text-slate-900 dark:text-white mb-2 block">
+        <label for="filter-min-price" class="form-label font-medium text-slate-900 dark:text-white mb-2 block">
           {{'FILTER.PRICE_RANGE' | translate}}
         </label>
         <div class="grid grid-cols-2 gap-2">
           <input
+            id="filter-min-price"
             type="number"
             [(ngModel)]="minPrice"
             (ngModelChange)="onFilterChange()"
@@ -83,7 +85,11 @@
             [attr.aria-label]="'FILTER.MIN_PRICE' | translate"
             class="form-input rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-3 py-2"
           />
+          <label for="filter-max-price" class="form-label font-medium text-slate-900 dark:text-white mb-2 block">
+            {{'FILTER.MAX_PRICE' | translate}}
+          </label>
           <input
+            id="filter-max-price"
             type="number"
             [(ngModel)]="maxPrice"
             (ngModelChange)="onFilterChange()"
@@ -97,11 +103,12 @@
 
     <!-- Faixa de Área -->
     <div>
-      <label class="form-label font-medium text-slate-900 dark:text-white mb-2 block">
+      <label for="filter-min-area" class="form-label font-medium text-slate-900 dark:text-white mb-2 block">
         {{'FILTER.AREA_RANGE' | translate}} (m²)
       </label>
       <div class="grid grid-cols-2 gap-2">
         <input
+          id="filter-min-area"
           type="number"
           [(ngModel)]="minArea"
           (ngModelChange)="onFilterChange()"
@@ -109,7 +116,11 @@
           [attr.aria-label]="'FILTER.MIN_AREA' | translate"
           class="form-input rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-3 py-2"
         />
+        <label for="filter-max-area" class="form-label font-medium text-slate-900 dark:text-white mb-2 block">
+          {{'FILTER.MAX_AREA' | translate}} (m²)
+        </label>
         <input
+          id="filter-max-area"
           type="number"
           [(ngModel)]="maxArea"
           (ngModelChange)="onFilterChange()"
@@ -129,7 +140,7 @@
       </h3>
 
       <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
-        
+
         <!-- Quartos -->
         <div>
           <label for="bedrooms-select" class="form-label font-medium text-slate-900 dark:text-white">
@@ -196,7 +207,7 @@
       <i class="uil uil-search"></i>
       <span>{{'FILTER.SEARCH' | translate}}</span>
     </button>
-    
+
     <button
       (click)="clearFilters()"
       class="btn bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white rounded-md px-6 py-2.5 flex items-center justify-center gap-2"
