@@ -3,20 +3,23 @@
   <div class="flex flex-wrap gap-3 items-center">
     <!-- Localização -->
     <div class="flex-1 min-w-[200px]">
-      <input 
-        type="text" 
+      <input
+        type="text"
         [(ngModel)]="location"
         (ngModelChange)="onLocationChange()"
         placeholder="{{'HOME.FILTER.LOCATION' | translate}}"
+        [attr.aria-label]="'HOME.FILTER.LOCATION' | translate"
         class="w-full rounded-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-slate-900 px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary focus:border-primary"
       />
     </div>
 
     <!-- Finalidade -->
     <div class="min-w-[150px]">
-      <select 
+      <select
         [(ngModel)]="selectedPurpose"
         (ngModelChange)="onFilterChange()"
+        [attr.aria-label]="'HOME.FILTER.ALL_PURPOSES' | translate"
+        [attr.title]="'HOME.FILTER.ALL_PURPOSES' | translate"
         class="w-full rounded-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-slate-900 px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary focus:border-primary"
       >
         <option value="">{{'HOME.FILTER.ALL_PURPOSES' | translate}}</option>
@@ -28,9 +31,11 @@
 
     <!-- Tipo -->
     <div class="min-w-[150px]">
-      <select 
+      <select
         [(ngModel)]="selectedPropertyType"
         (ngModelChange)="onFilterChange()"
+        [attr.aria-label]="'HOME.FILTER.ALL_TYPES' | translate"
+        [attr.title]="'HOME.FILTER.ALL_TYPES' | translate"
         class="w-full rounded-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-slate-900 px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary focus:border-primary"
       >
         <option value="">{{'HOME.FILTER.ALL_TYPES' | translate}}</option>
@@ -42,24 +47,25 @@
 
     <!-- Área -->
     <div class="min-w-[120px]">
-      <input 
-        type="number" 
+      <input
+        type="number"
         [(ngModel)]="minArea"
         (ngModelChange)="onFilterChange()"
         placeholder="{{'HOME.FILTER.MIN_AREA' | translate}}"
+        [attr.aria-label]="'HOME.FILTER.MIN_AREA' | translate"
         class="w-full rounded-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-slate-900 px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary focus:border-primary"
       />
     </div>
 
     <!-- Botões -->
-    <button 
+    <button
       (click)="onSearch()"
       class="btn bg-primary hover:bg-primary-dark text-white rounded-full px-6 py-2.5 text-sm font-medium"
     >
       {{'COMMON.SEARCH' | translate}}
     </button>
 
-    <button 
+    <button
       (click)="clearFilters()"
       class="btn border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-800 rounded-full px-6 py-2.5 text-sm font-medium"
     >

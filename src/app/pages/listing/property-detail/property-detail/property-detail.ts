@@ -31,7 +31,7 @@ export class PropertyDetail implements OnInit{
   property: Property | null = null;
   isLoading = true;
   error: string | null = null;
-  
+
   // Referência para o player do YouTube injetado dinamicamente na galeria
   private youtubePlayerRef: ComponentRef<YouTubePlayer> | null = null;
 
@@ -209,7 +209,7 @@ export class PropertyDetail implements OnInit{
 
   onAfterSlide = (detail: AfterSlideDetail): void => {
     const { index } = detail;
-    
+
     // Verificar se é um vídeo
     const allItems = this.allGalleryItems;
     if (allItems[index]?.isVideo) {
@@ -244,11 +244,11 @@ export class PropertyDetail implements OnInit{
       // Calcula dimensões para ocupar o máximo possível mantendo proporção
       const containerWidth = lgInner.clientWidth;
       const containerHeight = lgInner.clientHeight;
-      
+
       // Calcula qual dimensão limita (largura ou altura)
       const aspectRatio = 16 / 9;
       let playerWidth, playerHeight;
-      
+
       if (containerWidth / containerHeight > aspectRatio) {
         // Limitado pela altura
         playerHeight = containerHeight * 0.9;
@@ -296,13 +296,13 @@ export class PropertyDetail implements OnInit{
       this.appRef.detachView(this.youtubePlayerRef.hostView);
       this.youtubePlayerRef.destroy();
       this.youtubePlayerRef = null;
-      
+
       // Remove o overlay também
       const overlay = document.querySelector('.youtube-player-overlay');
       if (overlay) {
         overlay.remove();
       }
-      
+
     }
   }
 
@@ -367,7 +367,7 @@ export class PropertyDetail implements OnInit{
       `Olá! Gostaria de *RESERVAR* o imóvel:\n\n` +
       `* REF: ${ref}\n` +
       `* ${this.formattedPrice}${this.priceSubLabel || ''}\n\n` +
-      `Link: ${propertyUrl}`
+      `${propertyUrl}`
     );
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(whatsappUrl, '_blank');
@@ -384,7 +384,7 @@ export class PropertyDetail implements OnInit{
       `Olá! Gostaria de *FAZER UMA OFERTA* para o imóvel:\n\n` +
       `* REF: ${ref}\n` +
       `* ${this.formattedPrice}${this.priceSubLabel || ''}\n\n` +
-      `Link: ${propertyUrl}`
+      `${propertyUrl}`
     );
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(whatsappUrl, '_blank');

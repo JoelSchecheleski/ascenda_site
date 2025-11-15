@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { Navbar } from "../../../components/navbar/navbar";
@@ -13,7 +12,6 @@ import { Footer } from "../../../components/footer/footer";
   selector: 'app-index-eleven',
   imports: [
     CommonModule,
-    RouterLink,
     FormsModule,
     TranslateModule,
     Navbar,

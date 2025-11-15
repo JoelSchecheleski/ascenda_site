@@ -21,6 +21,7 @@
     <div class="grid grid-cols-1">
         <div class="subcribe-form z-1">
             <form class="relative max-w-2xl mx-auto" (submit)="onSearch($event)">
+                <label for="search_name" class="sr-only">{{'BUY.SEARCH_PLACEHOLDER' | translate}}</label>
                 <i data-feather="search" class="size-5 absolute top-[47%] -translate-y-1/2 start-4"></i>
                 <input
                     type="text"
