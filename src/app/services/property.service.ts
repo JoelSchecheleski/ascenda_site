@@ -14,6 +14,7 @@ interface CacheEntry<T> {
 })
 export class PropertyService {
   private readonly apiUrl = 'https://real-estate-api-psi-seven.vercel.app';
+  // private readonly apiUrl = 'http://localhost:3000';
   private readonly CACHE_DURATION = 5 * 60 * 1000; // 5 minutos em milissegundos
   private readonly ENABLE_CACHE_LOGS = false; // Mude para false em produção
   private cache = new Map<string, CacheEntry<PropertySearchResponse>>();

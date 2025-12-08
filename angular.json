@@ -18,6 +18,10 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              "src/robots.txt",
+              "src/sitemap.xml",
+              "src/manifest.json",
+              "src/.htaccess",
               {
                 "glob": "**/*",
                 "input": "public"
@@ -78,6 +82,10 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              "src/robots.txt",
+              "src/sitemap.xml",
+              "src/manifest.json",
+              "src/.htaccess",
               {
                 "glob": "**/*",
                 "input": "public"

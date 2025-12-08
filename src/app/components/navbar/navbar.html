@@ -4,17 +4,17 @@
     @if (navLight === true) {
       <a class="logo" [routerLink]="'/'">
             <span class="inline-block dark:hidden">
-                <img [src]="'/assets/images/logo-dark.png'" class="l-dark" height="24" alt="">
-                <img [src]="'/assets/images/logo-light.png'" class="l-light" height="24" alt="">
+                <img [src]="'/assets/images/logo_ascenda_inmobiliaria.png'" class="l-dark" height="24" alt="Ascenda Inmobiliaria - Logo">
+                <img [src]="'/assets/images/logo_ascenda_inmobiliaria.png'" class="l-light" height="24" alt="Ascenda Inmobiliaria - Logo">
             </span>
-        <img [src]="'/assets/images/logo-light.png'" height="24" class="hidden dark:inline-block" alt="">
+        <img [src]="'/assets/images/logo_ascenda_inmobiliaria.png'" height="24" class="hidden dark:inline-block" alt="Ascenda Inmobiliaria - Logo">
       </a>
     }
 
     @if (!navLight) {
       <a class="logo" [routerLink]="'/'">
-        <img [src]="'/assets/images/logo-dark.png'" class="inline-block dark:hidden" alt="">
-        <img [src]="'/assets/images/logo-light.png'" class="hidden dark:inline-block" alt="">
+        <img [src]="'/assets/images/logo_ascenda_inmobiliaria.png'" class="inline-block dark:hidden" alt="Ascenda Inmobiliaria - Logo">
+        <img [src]="'/assets/images/logo_ascenda_inmobiliaria.png'" class="hidden dark:inline-block" alt="Ascenda Inmobiliaria - Logo">
       </a>
     }
 
@@ -71,9 +71,9 @@
 </nav>
 
 <!-- WhatsApp Floating Button -->
-<a 
-  (click)="openWhatsApp()" 
-  class="whatsapp-float" 
+<a
+  (click)="openWhatsApp()"
+  class="whatsapp-float"
   title="Entre em contato via WhatsApp"
   role="button"
   tabindex="0">

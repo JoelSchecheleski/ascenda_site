@@ -1,11 +1,145 @@
 <!doctype html>
-<html lang="en" class="light scroll-smooth" dir="ltr">
+<html lang="es" class="light scroll-smooth" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <title>Ascenda - Angular Real Estate Landing & Admin Dashboard Template</title>
+  <title>Ascenda Servicios Inmobiliarios | Compra, Venta y Alquiler de Propiedades en América Latina</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Ascenda - Tu inmobiliaria de confianza en América Latina. Encuentra casas, departamentos, terrenos y propiedades comerciales en venta y alquiler. Asesoramiento profesional y las mejores oportunidades del mercado inmobiliario.">
+  <meta name="keywords" content="inmobiliaria, propiedades, casas en venta, departamentos en alquiler, bienes raíces, real estate, terrenos, propiedades comerciales, inversión inmobiliaria, América Latina, comprar casa, alquilar departamento">
+  <meta name="author" content="Ascenda Servicios Inmobiliarios">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow">
+  <meta name="language" content="Spanish">
+  <meta name="geo.region" content="LATAM">
+  <meta name="geo.placename" content="América Latina">
+  <link rel="canonical" href="https://www.ascendainmobiliaria.com/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.ascendainmobiliaria.com/">
+  <meta property="og:title" content="Ascenda Servicios Inmobiliarios | Propiedades en América Latina">
+  <meta property="og:description" content="Encuentra tu propiedad ideal en América Latina. Casas, departamentos, terrenos y más. Asesoramiento profesional y las mejores oportunidades del mercado inmobiliario.">
+  <meta property="og:image" content="https://www.ascendainmobiliaria.com/assets/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Ascenda Inmobiliaria">
+  <meta property="og:locale" content="es_LA">
+  <meta property="og:locale:alternate" content="pt_BR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://www.ascendainmobiliaria.com/">
+  <meta name="twitter:title" content="Ascenda Servicios Inmobiliarios | Propiedades en América Latina">
+  <meta name="twitter:description" content="Encuentra tu propiedad ideal en América Latina. Casas, departamentos, terrenos y más.">
+  <meta name="twitter:image" content="https://www.ascendainmobiliaria.com/assets/images/twitter-card.jpg">
+
+  <!-- Alternate Languages -->
+  <link rel="alternate" hreflang="es" href="https://www.ascendainmobiliaria.com/">
+  <link rel="alternate" hreflang="es-AR" href="https://www.ascendainmobiliaria.com/ar/">
+  <link rel="alternate" hreflang="es-MX" href="https://www.ascendainmobiliaria.com/mx/">
+  <link rel="alternate" hreflang="es-CO" href="https://www.ascendainmobiliaria.com/co/">
+  <link rel="alternate" hreflang="es-CL" href="https://www.ascendainmobiliaria.com/cl/">
+  <link rel="alternate" hreflang="pt-BR" href="https://www.ascendainmobiliaria.com/br/">
+  <link rel="alternate" hreflang="x-default" href="https://www.ascendainmobiliaria.com/">
+
+  <!-- Preconnect for Performance -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    "name": "Ascenda Servicios Inmobiliarios",
+    "description": "Inmobiliaria especializada en compra, venta y alquiler de propiedades en América Latina",
+    "url": "https://www.ascendainmobiliaria.com",
+    "logo": "https://www.ascendainmobiliaria.com/assets/images/logo.png",
+    "image": "https://www.ascendainmobiliaria.com/assets/images/og-image.jpg",
+    "telephone": "+5547996688829",
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "América Latina",
+      "addressCountry": "LATAM"
+    },
+    "areaServed": [
+      {
+        "@type": "Country",
+        "name": "Argentina"
+      },
+      {
+        "@type": "Country",
+        "name": "México"
+      },
+      {
+        "@type": "Country",
+        "name": "Colombia"
+      },
+      {
+        "@type": "Country",
+        "name": "Chile"
+      },
+      {
+        "@type": "Country",
+        "name": "Brasil"
+      },
+      {
+        "@type": "Country",
+        "name": "Paraguay"
+      }
+    ],
+    "sameAs": [
+      "https://www.facebook.com/ascendainmobiliaria",
+      "https://www.instagram.com/ascendainmobiliaria",
+      "https://www.linkedin.com/company/ascendainmobiliaria"
+    ],
+    "priceRange": "$$",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Ascenda Inmobiliaria",
+    "url": "https://www.ascendainmobiliaria.com",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.ascendainmobiliaria.com/buscar?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- Favicon and Icons -->
   <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Ascenda">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#2563eb">
   <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/@iconscout/unicons@4.2.0/script/monochrome/bundle.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/@iconscout/unicons@4.2.0/css/line.min.css" rel="stylesheet">
